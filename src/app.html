@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="" />
-		<link rel="icon" href="%svelte.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%svelte.head%
-	</head>
-	<body>
-		<div>%svelte.body%</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <!-- generics -->
+    <link rel="icon" href="/%svelte.assets%/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/%svelte.assets%/favicon-57.png" sizes="57x57" />
+    <link rel="icon" href="/%svelte.assets%/favicon-76.png" sizes="76x76" />
+    <link rel="icon" href="/%svelte.assets%/favicon-96.png" sizes="96x96" />
+    <link rel="icon" href="/%svelte.assets%/favicon-128.png" sizes="128x128" />
+    <link rel="icon" href="/%svelte.assets%/favicon-196.png" sizes="196x196" />
+    <link rel="icon" href="/%svelte.assets%/favicon-228.png" sizes="228x228" />
+    <!-- Android -->
+    <link rel="shortcut icon" href="/%svelte.assets%/favicon-196.png" sizes="196x196" />
+    <!-- iOS -->
+    <link rel="apple-touch-icon" href="/%svelte.assets%/favicon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon" href="/%svelte.assets%/favicon-152.png" sizes="152x152" />
+    <link rel="apple-touch-icon" href="/%svelte.assets%/favicon-180.png" sizes="180x180" />
+    <!-- Windows -->
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/%svelte.assets/favicon-144.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    %svelte.head%
+  </head>
+  <body class="text-gray-800">
+    <div class="py-4 px-6 min-h-full flex flex-col gap-12 max-w-7xl mx-auto">%svelte.body%</div>
+  </body>
 </html>

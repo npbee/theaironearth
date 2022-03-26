@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: theme('colors.gray.600');
+  }
+
+  html {
+    font-family: avenir next, avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+      Segoe UI Symbol, Noto Color Emoji;
+    font-size: 0.9rem;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  a:hover {
+    @apply underline;
+  }
+
+  a:active {
+    @apply text-gray-600;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .focusable {
+    @apply focus:outline-none focus-visible:ring focus-visible:ring-accent-400;
+  }
+
+  .small-caps {
+    font-variant-caps: small-caps;
+    -moz-font-feature-settings: 'smcp';
+    -webkit-font-feature-settings: 'smcp';
+    font-feature-settings: 'smcp';
+    letter-spacing: 0.05em;
+  }
+
+  .decorated-link {
+    text-decoration: none;
+    box-shadow: inset 0 -1px 0 theme('colors.muted');
+    border-bottom: 1px solid theme('colors.muted');
+    transition: background-color 200ms;
+  }
+
+  .decorated-link:hover {
+    background-color: theme('colors.muted');
+    color: theme('colors.gray.50');
+  }
+}

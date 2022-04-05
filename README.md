@@ -1,40 +1,30 @@
-# create-svelte
+[![The Air on Earth logo](static/docs-logo.svg)](https://theaironearth.com)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+> Source code for my musical alias site
 
-## Creating a project
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4c271601-122f-41d0-b061-28feabb7d1d5/deploy-status)](https://app.netlify.com/sites/theaironearth-next/deploys)
 
-If you're seeing this, you've probably already done this step. Congrats!
+Built with:
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+- [Netlify](https://www.netlify.com)
+- [SvelteKit](https://sapper.svelte.dev/)
+- [Tailwind](https://tailwindcss.com/)
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+# Setup
 
-> Note: the `@next` is temporary
+1. Install [pnpm](https://pnpm.io/)
+2. `pnpm install`
 
-## Developing
+# Development
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start the dev server with:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+# Deployment
 
-To create a production version of your app:
+Deployment will happen automatically when pushed to GitHub
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# Scripts

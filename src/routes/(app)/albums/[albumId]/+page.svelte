@@ -3,7 +3,7 @@
   import Date from '$lib/components/Date.svelte';
   import Heading from '$lib/components/Heading.svelte';
   import Tracklist from '$lib/components/Tracklist.svelte';
-  import SocialLink from '$lib/components/SocialLink.svelte';
+  import ListenLink from '$lib/components/ListenLink.svelte';
   import Credits from '$lib/components/Credits.svelte';
   import CreditSource from '$lib/components/CreditSource.svelte';
   import Track from '$lib/components/Track.svelte';
@@ -69,7 +69,7 @@
         </div>
         <ul class="flex items-center gap-6">
           {#each album.links as link}
-            <li><SocialLink {link} /></li>
+            <li><ListenLink {link} variant="glyph" /></li>
           {/each}
         </ul>
       </div>
@@ -85,6 +85,7 @@
       <div class="max-w-prose space-y-4 text-lg leading-relaxed">
         {#each album.description as p}
           <p class="">
+            <!-- eslint-disable-next-line -->
             {@html p}
           </p>
         {/each}

@@ -21,7 +21,7 @@ export interface Track {
   id: string;
   title: string;
   albumId: string;
-  links: SocialLink[];
+  links: ListenLink[];
   credits: Credit[];
   length: string;
   theme: TrackTheme;
@@ -39,7 +39,7 @@ export interface Credit {
   source: PersonOrPlace | PersonOrPlace[];
 }
 
-export type SocialLink =
+export type ListenLink =
   | { type: 'soundcloud'; url: string }
   | { type: 'spotify'; url: string }
   | { type: 'bandcamp'; url: string }
@@ -59,7 +59,7 @@ export interface Album {
   date: string;
   description: string[];
   credits: Credit[];
-  links: SocialLink[];
+  links: ListenLink[];
   imgs: Array<{
     src: string;
     size?: 'full' | 'three-quarter-right' | 'three-quarter-left';
@@ -275,6 +275,7 @@ registerTrack({
       l: 39,
     },
   },
+  lyrics: [],
 });
 
 registerTrack({
@@ -1197,41 +1198,42 @@ export const site = {
     bandcamp: bc('https://theaironearth.bandcamp.com'),
     soundcloud: sc(''),
     spotify: spotify('artist/4beU4ZRfDapoH3orvpJthM'),
+    apple: ap('https://music.apple.com/us/artist/the-air-on-earth/1085692163'),
   },
 };
 
 /**
  * Helpers
  */
-function sc(id: string): SocialLink {
+function sc(id: string): ListenLink {
   return {
     type: 'soundcloud',
     url: id.startsWith('http') ? id : `https://soundcloud.com/theaironearth/${id}`,
   };
 }
 
-function spotify(id: string): SocialLink {
+function spotify(id: string): ListenLink {
   return {
     type: 'spotify',
     url: `https://open.spotify.com/${id}`,
   };
 }
 
-function bc(id: string): SocialLink {
+function bc(id: string): ListenLink {
   return {
     type: 'bandcamp',
     url: id.startsWith('http') ? id : `https://theaironearth.bandcamp.com/track/${id}`,
   };
 }
 
-function ap(url: string): SocialLink {
+function ap(url: string): ListenLink {
   return {
     type: 'apple-music',
     url,
   };
 }
 
-function registerTrack(props: Partial<Track>): Track {
+function registerTrack(props: Track): Track {
   const { id, title, length, theme } = props;
 
   if (!length) {
@@ -1242,7 +1244,7 @@ function registerTrack(props: Partial<Track>): Track {
     throw new Error('Must provide track theme');
   }
 
-  const Track = Object.assign(
+  const track: Track = Object.assign(
     {
       type: 'track',
       id,
@@ -1254,23 +1256,23 @@ function registerTrack(props: Partial<Track>): Track {
       theme,
       length,
     },
-    props
+    props,
   );
 
   if (!tracks[id]) {
-    tracks[id] = Track;
+    tracks[id] = track;
   }
 
   // Cheat a little and pre-push the tracks to the album
-  if (Track.albumId && albums[Track.albumId]) {
-    const Album = albums[Track.albumId];
-    Album.tracks.push(Track);
+  if (track.albumId && albums[track.albumId]) {
+    const Album = albums[track.albumId];
+    Album.tracks.push(track);
   }
 
-  return Track;
+  return track;
 }
 
-function registerAlbum(props: Partial<Album>): Album {
+function registerAlbum(props: Partial<Album> & { id: string; title: string }): Album {
   const { id, title } = props;
   const Album = Object.assign(
     {
@@ -1285,7 +1287,7 @@ function registerAlbum(props: Partial<Album>): Album {
       links: [],
       imgs: [],
     },
-    props
+    props,
   );
 
   if (!albums[id]) {
@@ -1295,7 +1297,6 @@ function registerAlbum(props: Partial<Album>): Album {
   return Album;
 }
 
-export const playlistOrder = [GoodSport, TheAirOnEarth].reduce((list, album) => {
-  list.push(...album.tracks.map((track) => track.id));
-  return list;
-}, []);
+export const playlistOrder = [GoodSport, TheAirOnEarth].flatMap((album) =>
+  album.tracks.map((track) => track.id),
+);

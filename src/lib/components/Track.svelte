@@ -4,7 +4,7 @@
   import AlbumRef from './AlbumRef.svelte';
   import { generateTheme } from '../utils';
   import MicroPlayer from './MicroPlayer.svelte';
-  import SocialLink from './SocialLink.svelte';
+  import ListenLink from './ListenLink.svelte';
   import Image from './Image.svelte';
   import Lyrics from './Lyrics.svelte';
   import Credits from './Credits.svelte';
@@ -15,7 +15,10 @@
   let track = Data.tracks[id];
   let album = Data.albums[track.albumId];
 
-  function trackColor(track: Data.Track, color: string) {
+  function trackColor(
+    track: Data.Track,
+    color: 'main' | 'mainAlpha' | 'mainAlpha2' | 'highContrast'
+  ) {
     const theme = generateTheme(track);
 
     return theme[color];
@@ -38,9 +41,9 @@
       {/if}
     </div>
 
-    <ul class="flex items-center gap-6">
+    <ul class="flex items-center gap-6 flex-wrap">
       {#each track.links as link}
-        <li><SocialLink {link} /></li>
+        <li><ListenLink {link} /></li>
       {/each}
     </ul>
   </div>

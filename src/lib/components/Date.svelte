@@ -1,7 +1,7 @@
-<script>
-  export let dateTime;
+<script lang="ts">
+  export let dateTime: string;
 </script>
 
-<time dateTime={dateTime} class="small-caps text-sm">
+<time datetime={dateTime} class="small-caps text-sm">
   {dateTime}
 </time>

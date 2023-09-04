@@ -1,4 +1,4 @@
-<svg viewBox="0 0 355 154" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 355 154" xmlns="http://www.w3.org/2000/svg" role="img">
   <g fill="none" fill-rule="evenodd">
     <path
       d="M4.363 128.901a21.388 21.388 0 0 0 21.456 21.47 21.388 21.388 0 0 0

@@ -1,17 +1,4 @@
-<script>
-  import '../app.css';
-  import Header from '$lib/components/Header.svelte';
-  import Footer from '$lib/components/Footer.svelte';
-  import IconSprite from '$lib/components/Icons.svelte';
-</script>
-
-<Header />
-<main class="flex-1">
-  <IconSprite />
-  <div class="bg" />
-  <slot />
-</main>
-<Footer />
+<div class="bg" />
 
 <style>
   .bg {

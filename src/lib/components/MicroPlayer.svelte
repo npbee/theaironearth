@@ -23,7 +23,9 @@
     } else if (isBusy) {
       send('stop');
     } else {
-      send({ type: 'play-track', trackId });
+      // eslint-disable-next-line
+      // @ts-ignore
+      send({ type: 'play-track', trackId } as const);
     }
   };
 </script>

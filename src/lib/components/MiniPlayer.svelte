@@ -14,10 +14,20 @@
 
 {#if isErrored}
   <div class="max-w-xs text-sm text-red-700">
-    Could not play this track! Try playing again or listening directly from
-    <a target="_blank" rel="noopener noreferrer nofollow" class="decorated-link" href={scLink.url}>
-      Soundcloud
-    </a>.
+    Could not play this track!
+    {#if scLink}
+      <span
+        >Try playing again or listening directly from
+        <a
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          class="decorated-link"
+          href={scLink.url}
+        >
+          Soundcloud
+        </a>.
+      </span>
+    {/if}
   </div>
 {:else if isPlaying}
   <div class="flex justify-between gap-4 player" in:fly={{ x: 20, duration: 300 }}>

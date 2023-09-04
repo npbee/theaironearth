@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
+  import type { Track } from '$lib/data';
   import MicroPlayer from './MicroPlayer.svelte';
-  export let tracks;
+  export let tracks: Array<Track>;
 </script>
 
 <ol class="flex flex-col gap-3">

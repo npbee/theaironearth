@@ -2,7 +2,7 @@
   import Date from '$lib/components/Date.svelte';
   import Image from '$lib/components/Image.svelte';
   import Heading from '$lib/components/Heading.svelte';
-  import SocialLink from '$lib/components/SocialLink.svelte';
+  import ListenLink from '$lib/components/ListenLink.svelte';
   import { albums } from '$lib/data';
 </script>
 
@@ -29,9 +29,9 @@
             </Heading>
           </a>
         </div>
-        <ul class="flex items-center gap-6">
+        <ul class="flex items-center flex-wrap gap-6">
           {#each album.links as link}
-            <li><SocialLink {link} /></li>
+            <li><ListenLink {link} /></li>
           {/each}
         </ul>
       </div>

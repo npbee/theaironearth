@@ -1,8 +1,8 @@
 <script lang="ts">
   import Loader from './Loader.svelte';
   import Icon from './Icon.svelte';
-  import { state, send, canPlay } from '../player';
-  import { tracks } from '../data';
+  import { state, send, canPlay } from '$lib/player';
+  import { tracks } from '$lib/data';
 
   export let trackId: string;
   export let size = '2xl';

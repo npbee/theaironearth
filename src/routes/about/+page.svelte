@@ -1,8 +1,8 @@
 <script>
-  import Image from '../components/Image.svelte';
-  import SocialLink from '../components/SocialLink.svelte';
-  import Heading from '../components/Heading.svelte';
-  import { site } from '../data';
+  import Image from '$lib/components/Image.svelte';
+  import SocialLink from '$lib/components/SocialLink.svelte';
+  import Heading from '$lib/components/Heading.svelte';
+  import { site } from '$lib/data';
 </script>
 
 <svelte:head>

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Image from '../components/Image.svelte';
-  import Heading from '../components/Heading.svelte';
-  import SocialLink from '../components/SocialLink.svelte';
-  import MicroPlayer from '../components/MicroPlayer.svelte';
-  import AlbumRef from '../components/AlbumRef.svelte';
-  import * as Data from '../data';
+  import Image from '$lib/components/Image.svelte';
+  import Heading from '$lib/components/Heading.svelte';
+  import SocialLink from '$lib/components/SocialLink.svelte';
+  import MicroPlayer from '$lib/components/MicroPlayer.svelte';
+  import AlbumRef from '$lib/components/AlbumRef.svelte';
+  import * as Data from '$lib/data';
 
   function album(track: Data.Track): Data.Album {
     return Data.albums[track.albumId];

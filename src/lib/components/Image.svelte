@@ -1,5 +1,5 @@
 <script>
-  import { cloudinaryImgUrl as url } from '../utils';
+  import { cloudinaryImgUrl as url } from '$lib/utils';
   export let src;
   export let alt;
   export let ratio = '62.5%';

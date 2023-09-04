@@ -1,9 +1,9 @@
 <script>
-  import Date from '../components/Date.svelte';
-  import Image from '../components/Image.svelte';
-  import Heading from '../components/Heading.svelte';
-  import SocialLink from '../components/SocialLink.svelte';
-  import { albums } from '../data';
+  import Date from '$lib/components/Date.svelte';
+  import Image from '$lib/components/Image.svelte';
+  import Heading from '$lib/components/Heading.svelte';
+  import SocialLink from '$lib/components/SocialLink.svelte';
+  import { albums } from '$lib/data';
 </script>
 
 <svelte:head>

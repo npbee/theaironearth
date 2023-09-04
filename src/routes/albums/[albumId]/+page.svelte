@@ -1,28 +1,16 @@
-<script context="module">
-  import { albums } from '../../data';
-
-  export async function load({ params }) {
-    const album = albums[params.albumId];
-
-    return {
-      props: {
-        album,
-      },
-    };
-  }
-</script>
-
 <script lang="ts">
-  import Image from '../../components/Image.svelte';
-  import Date from '../../components/Date.svelte';
-  import Heading from '../../components/Heading.svelte';
-  import Tracklist from '../../components/Tracklist.svelte';
-  import SocialLink from '../../components/SocialLink.svelte';
-  import Credits from '../../components/Credits.svelte';
-  import CreditSource from '../../components/CreditSource.svelte';
-  import Track from '../../components/Track.svelte';
+  import Image from '$lib/components/Image.svelte';
+  import Date from '$lib/components/Date.svelte';
+  import Heading from '$lib/components/Heading.svelte';
+  import Tracklist from '$lib/components/Tracklist.svelte';
+  import SocialLink from '$lib/components/SocialLink.svelte';
+  import Credits from '$lib/components/Credits.svelte';
+  import CreditSource from '$lib/components/CreditSource.svelte';
+  import Track from '$lib/components/Track.svelte';
+  import type { PageData } from './$types';
 
-  export let album;
+  export let data: PageData;
+  let { album } = data;
 </script>
 
 <svelte:head>

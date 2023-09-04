@@ -1,8 +1,8 @@
 <script>
   import { fly } from 'svelte/transition';
-  import { state } from '../player';
+  import { state } from '$lib/player';
   import MicroPlayer from './MicroPlayer.svelte';
-  import * as Data from '../data';
+  import * as Data from '$lib/data';
 
   $: isPlaying = !$state.matches('init');
   let isErrored = $state.matches('error-playing');

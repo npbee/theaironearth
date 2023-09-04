@@ -1,22 +1,9 @@
-<script context="module">
-  import { albums, tracks } from '../../data';
-
-  export async function load({ params }) {
-    let track = tracks[params.trackId];
-
-    return {
-      props: {
-        track,
-      },
-    };
-  }
-</script>
-
 <script lang="ts">
-  import Track from '../../components/Track.svelte';
-  import type * as Data from '../../data';
+  import Track from '$lib/components/Track.svelte';
+  import type { PageData } from './$types';
 
-  export let track: Data.Track;
+  export let data: PageData;
+  let { track } = data;
 </script>
 
 <svelte:head>

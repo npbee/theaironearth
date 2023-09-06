@@ -112,6 +112,7 @@ let onTimeUpdate;
 let onEnd;
 
 if (typeof window !== 'undefined') {
+  console.log('HERE?');
   audio = new Audio();
   audio.setAttribute('preload', 'auto');
 }

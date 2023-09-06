@@ -111,8 +111,7 @@ let audio;
 let onTimeUpdate;
 let onEnd;
 
-if (typeof window !== 'undefined') {
-  console.log('HERE?');
+if (typeof Audio !== 'undefined') {
   audio = new Audio();
   audio.setAttribute('preload', 'auto');
 }

@@ -2,7 +2,7 @@ import type * as Data from './data';
 
 const CLOUDINARY_BASE = 'https://res.cloudinary.com/dhhjogfy6/';
 
-export function cloudinaryImgUrl(transform, src) {
+export function cloudinaryImgUrl(transform: string, src: string) {
   return `${CLOUDINARY_BASE}/image/upload/${transform}/v1575831765/img/${src}`;
 }
 

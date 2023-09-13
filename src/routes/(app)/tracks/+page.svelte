@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from '$lib/components/Image.svelte';
   import Heading from '$lib/components/Heading.svelte';
-  import SocialLink from '$lib/components/SocialLink.svelte';
+  import ListenLink from '$lib/components/ListenLink.svelte';
   import MicroPlayer from '$lib/components/MicroPlayer.svelte';
   import AlbumRef from '$lib/components/AlbumRef.svelte';
   import * as Data from '$lib/data';
@@ -44,9 +44,9 @@
           </div>
           <AlbumRef album={album(track)} />
         </div>
-        <ul class="flex items-center gap-6">
+        <ul class="flex items-center gap-6 flex-wrap">
           {#each track.links as link}
-            <li><SocialLink {link} /></li>
+            <li><ListenLink {link} /></li>
           {/each}
         </ul>
       </div>

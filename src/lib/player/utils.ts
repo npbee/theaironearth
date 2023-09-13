@@ -26,18 +26,18 @@ export function ejectTrackTheme() {
   removeCustomProp('--accent-high-contrast');
 }
 
-export function formatTime(seconds) {
+export function formatTime(seconds: number) {
   const min = Math.floor(seconds / 60);
   const sec = `${Math.floor(seconds % 60)}`.padStart(2, '0');
 
   return `${min}:${sec}`;
 }
 
-function setCustomProp(prop, value) {
+function setCustomProp(prop: string, value: string) {
   document.documentElement.style.setProperty(prop, value);
 }
 
-function removeCustomProp(prop) {
+function removeCustomProp(prop: string) {
   document.documentElement.style.removeProperty(prop);
 }
 

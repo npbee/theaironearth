@@ -1,6 +1,6 @@
 <script>
   import Image from '$lib/components/Image.svelte';
-  import SocialLink from '$lib/components/SocialLink.svelte';
+  import ListenLink from '$lib/components/ListenLink.svelte';
   import Heading from '$lib/components/Heading.svelte';
   import { site } from '$lib/data';
 </script>
@@ -46,10 +46,10 @@
       <a href="https://www.aabondy.co/" class="decorated-link">A.A. Bondy</a>.
     </p>
 
-    <ul class="flex items-center gap-4">
+    <ul class="flex items-center gap-4 flex-wrap">
       {#each Object.values(site.links) as link}
         <li class="py-2 md:py-1">
-          <SocialLink {link} />
+          <ListenLink {link} />
         </li>
       {/each}
     </ul>

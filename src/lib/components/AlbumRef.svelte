@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
+  import type { Album } from '$lib/data';
   import DecoratedLink from './DecoratedLink.svelte';
 
-  export let album;
+  export let album: Album;
 </script>
 
 <p class="text-xs">

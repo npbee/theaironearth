@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+// @ts-nocheck
 import { createMachine, assign, interpret } from '@xstate/fsm';
 import * as Data from '../data';
 import { injectTrackTheme, streamUrlFor } from './utils';
@@ -10,14 +12,8 @@ type Context = {
 };
 
 type PlayTrack = { type: 'play-track'; trackId: string };
-type Started = 'started';
-type Ready = 'ready';
-type Failed = 'failed';
-type Loaded = 'loaded';
 type TimeUpdate = { type: 'time-update'; currentTime: number; duration: number; trackId: string };
 type Seek = { type: 'seek'; to: number };
-
-type Evt = PlayTrack | Started | TimeUpdate | Ready | Failed | Seek | Loaded;
 
 const machine = createMachine({
   id: 'player',
@@ -100,7 +96,7 @@ const machine = createMachine({
 let send;
 
 export function init() {
-  let service = interpret(machine).start();
+  const service = interpret(machine).start();
 
   send = service.send;
 

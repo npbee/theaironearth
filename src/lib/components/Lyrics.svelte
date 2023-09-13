@@ -1,5 +1,5 @@
-<script>
-  export let lyrics;
+<script lang="ts">
+  export let lyrics: Array<Array<string>>;
 </script>
 
 <div class="space-y-6 font-serif text-base leading-relaxed text-muted">

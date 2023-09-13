@@ -1,5 +1,5 @@
-<script>
-  export let icon;
+<script lang="ts">
+  export let icon: string;
 
   export let size = 'sm';
 
@@ -29,6 +29,6 @@
   })(size);
 </script>
 
-<svg class={cls} style="width: 1em; height: 1em;">
+<svg style="width: 1em; height: 1em;" role="presentation" {...$$restProps}>
   <use xlink:href={`#${icon}`} />
 </svg>

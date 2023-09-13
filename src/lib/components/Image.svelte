@@ -1,37 +1,37 @@
-<script>
+<script lang="ts">
   import { cloudinaryImgUrl as url } from '$lib/utils';
-  export let src;
-  export let alt;
+  export let src: string;
+  export let alt: string;
   export let ratio = '62.5%';
 
   let loaded = false;
   let inview = false;
   let js = typeof window !== 'undefined' && window.IntersectionObserver;
 
-  function load(img) {
+  function load(img: HTMLImageElement) {
     img.onload = () => {
       loaded = true;
     };
   }
 
-  function waypoint(node) {
-    if (!window) return;
+  function waypoint(node: Element) {
+    if (!window) return {};
 
     if (window.IntersectionObserver) {
       const options = {
         rootMargin: '100px',
         threshold: 0.1,
       };
-      const observer = new IntersectionObserver(lazyload, options);
-
-      // eslint-disable-next-line
-      function lazyload(elements) {
+      // eslint-disable-next-line no-undef
+      const lazyload: IntersectionObserverCallback = function lazyload(elements) {
         const element = elements[0];
         if (element && element.intersectionRatio > 0) {
           observer.unobserve(element.target);
           inview = true;
         }
-      }
+      };
+
+      const observer = new IntersectionObserver(lazyload, options);
 
       observer.observe(node);
 
@@ -39,16 +39,16 @@
     }
   }
 
-  function largeUrl(src) {
+  function largeUrl(src: string) {
     return url('w_1200', src);
   }
-  function medUrl(src) {
+  function medUrl(src: string) {
     return url('w_800', src);
   }
-  function smallUrl(src) {
+  function smallUrl(src: string) {
     return url('w_500', src);
   }
-  function tinyUrl(src) {
+  function tinyUrl(src: string) {
     return url('w_20', src);
   }
 </script>

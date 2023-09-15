@@ -18,7 +18,14 @@
   {#each Object.values(albums) as album}
     <div class="flex flex-col gap-4">
       <a href={`/albums/${album.id}`} class="md:max-w-md">
-        <Image ratio="100%" src={album.artwork} alt={`Album artwork for ${album.title}`} />
+        <Image
+          ratio="100%"
+          src={album.artwork}
+          alt={`Album artwork for ${album.title}`}
+          sizes={[{ breakpoint: 0, w: 500 }]}
+          defaultSize={500}
+          loading="eager"
+        />
       </a>
       <div class="mb-16 space-y-4">
         <div>

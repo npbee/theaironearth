@@ -1,14 +1,33 @@
 <script lang="ts">
   import { cloudinaryImgUrl as url } from '$lib/utils';
+
+  interface Size {
+    breakpoint: number;
+    w: number;
+  }
+
   export let src: string;
   export let alt: string;
   export let ratio = '62.5%';
+  export let sizes: Size[] = [
+    { breakpoint: 1200, w: 1200 },
+    { breakpoint: 740, w: 800 },
+    { breakpoint: 0, w: 500 },
+  ];
+  export let defaultSize: number = 500;
+  export let loading: 'eager' | 'lazy' = 'lazy';
 
-  let loaded = false;
-  let inview = false;
+  type Format = (typeof formats)[number];
+
+  let isLazy = loading === 'lazy';
+  let isEager = loading === 'eager';
+  let formats = ['avif', 'webp', 'jpg'] as const;
+  let loaded = isEager ? true : false;
+  let inview = isLazy ? false : true;
   let js = typeof window !== 'undefined' && window.IntersectionObserver;
 
   function load(img: HTMLImageElement) {
+    if (isEager) return;
     img.onload = () => {
       loaded = true;
     };
@@ -16,6 +35,7 @@
 
   function waypoint(node: Element) {
     if (!window) return {};
+    if (isEager) return {};
 
     if (window.IntersectionObserver) {
       const options = {
@@ -39,61 +59,46 @@
     }
   }
 
-  function largeUrl(src: string) {
-    return url('w_1200', src);
+  function pic(w: number, format: Format) {
+    return url(`w_${w}`, `${src}.${format}`);
   }
-  function medUrl(src: string) {
-    return url('w_800', src);
-  }
-  function smallUrl(src: string) {
-    return url('w_500', src);
-  }
-  function tinyUrl(src: string) {
-    return url('w_20', src);
-  }
+
+  let lqip = pic(20, 'jpg');
 </script>
 
 <div style={`position: relative; width: 100%; height: 100%;`} class:loaded use:waypoint>
   <div style="position: relative; overflow: hidden; height: 100%;">
     <noscript>
       <picture>
-        <source srcset={largeUrl(`${src}.jpg`)} media="(min-width: 1200px)" />
-        <source srcset={medUrl(`${src}.jpg`)} media="(min-width: 740px)" />
-        <img class="main" src={smallUrl(`${src}.jpg`)} {alt} />
+        {#each formats as format}
+          {#each sizes as size}
+            <source
+              type={`image/${format}`}
+              srcset={pic(size.w, format)}
+              media={`(min-width: ${size.breakpoint}px)`}
+            />
+          {/each}
+          <img {alt} src={pic(defaultSize, 'jpg')} />
+        {/each}
       </picture>
     </noscript>
 
     <div style={`width: 100%; padding-bottom: ${ratio}`} />
 
     <div style={`display: ${js ? 'block' : 'none'}`}>
-      <img class="placeholder blur" src={tinyUrl(`${src}.jpg`)} {alt} />
+      <img class="placeholder blur" src={lqip} {alt} />
 
       <picture>
-        <source
-          type="image/webp"
-          srcset={inview ? largeUrl(`${src}.webp`) : tinyUrl(`${src}.jpg`)}
-          media="(min-width: 1200px)"
-        />
-        <source
-          type="image/webp"
-          srcset={inview ? medUrl(`${src}.webp`) : tinyUrl(`${src}.jpg`)}
-          media="(min-width: 740px)"
-        />
-
-        <source
-          srcset={inview ? largeUrl(`${src}.jpg`) : tinyUrl(`${src}.jpg`)}
-          media="(min-width: 1200px)"
-        />
-        <source
-          srcset={inview ? medUrl(`${src}.jpg`) : tinyUrl(`${src}.jpg`)}
-          media="(min-width: 740px)"
-        />
-        <img
-          class="main blur"
-          use:load
-          src={inview ? smallUrl(`${src}.jpg`) : tinyUrl(`${src}.jpg`)}
-          {alt}
-        />
+        {#each formats as format}
+          {#each sizes as size}
+            <source
+              type={`image/${format}`}
+              srcset={inview ? pic(size.w, format) : lqip}
+              media={`(min-width: ${size.breakpoint}px)`}
+            />
+          {/each}
+          <img {alt} class:blur={isLazy} use:load src={inview ? pic(defaultSize, 'jpg') : lqip} />
+        {/each}
       </picture>
     </div>
   </div>
@@ -112,6 +117,8 @@
   .blur {
     filter: blur(10px);
     transition: filter 0.5s ease;
+    opacity: 0;
+    transition: opacity 0.4s;
   }
 
   .placeholder {
@@ -119,20 +126,12 @@
     transition: opacity 0.4s;
   }
 
-  .main {
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-
   .loaded .placeholder {
     opacity: 0;
   }
 
-  .loaded .main {
-    opacity: 1;
-  }
-
   .loaded .blur {
+    opacity: 1;
     filter: none;
   }
 

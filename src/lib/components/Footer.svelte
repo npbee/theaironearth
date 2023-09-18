@@ -1,10 +1,11 @@
 <script lang="ts">
+  import FadingRule from './FadingRule.svelte';
   import Logo from './Logo.svelte';
   import SocialLinks from './SocialLinks.svelte';
 </script>
 
 <footer class="flex flex-col justify-between gap-4 text-muted w-full pt-4 md:pt-16">
-  <div class="md:hidden h-px rounded-full bg-gradient-to-r from-gray-600/90 to-gray-900/5 w-full" />
+  <FadingRule extraClass="md:hidden" />
   <div class="flex gap-12 items-center justify-between w-full">
     <a class="w-[60px] block items-center flex-shrink-0" href="/">
       <Logo />

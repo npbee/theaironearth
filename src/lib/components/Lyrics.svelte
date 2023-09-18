@@ -2,7 +2,7 @@
   export let lyrics: Array<Array<string>>;
 </script>
 
-<div class="space-y-6 font-serif text-base leading-relaxed text-muted">
+<div class="space-y-6 font-serif text-lg leading-relaxed text-muted">
   {#each lyrics as stanza, i}
     <div class={`stanza-${i}`}>
       {#each stanza as line}

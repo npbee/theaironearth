@@ -8,6 +8,7 @@
   import Image from './Image.svelte';
   import Lyrics from './Lyrics.svelte';
   import Credits from './Credits.svelte';
+  import FadingRule from './FadingRule.svelte';
 
   export let id: string;
   export let context = 'track';
@@ -24,45 +25,53 @@
     return theme[color];
   }
 
+  let trackTheme = generateTheme(track);
+  let color = trackTheme['main'];
+  let alpha = trackTheme['mainAlpha'];
+  let alpha2 = trackTheme['mainAlpha2'];
+
   let artwork = track.artwork ?? album.artwork;
 </script>
 
-<div class="space-y-8">
-  <div class="flex flex-1 flex-col gap-4 md:flex-row md:items-center md:justify-between">
-    <div class="space-y-1">
-      <div class="flex items-center gap-2">
-        <Heading level={context === 'album' ? 2 : 1} style="">
-          <a href={`/tracks/${track.id}`}>{track.title}</a></Heading
-        >
-        <MicroPlayer trackId={track.id} size={context === 'album' ? '2xl' : '3xl'} />
-      </div>
-      {#if context === 'track'}
-        <AlbumRef {album} />
-      {/if}
-    </div>
-
-    <ul class="flex items-center gap-6 flex-wrap">
-      {#each track.links as link}
-        <li><ListenLink {link} /></li>
-      {/each}
-    </ul>
+<div class="flex flex-col md:flex-row gap-16 items-start">
+  <div
+    class="w-full md:w-1/2 rounded-sm overflow-hidden md:sticky top-8"
+    style={`box-shadow: 0px 0px 30px 1px ${alpha};`}
+  >
+    <Image ratio="100%" src={artwork} alt={`Artwork for ${track.title}`} />
   </div>
 
-  <hr
-    class="my-0 h-1 rounded-lg border-none"
-    style={`background-color: ${trackColor(track, 'main')}`}
-  />
-</div>
-
-<div class="flex flex-col justify-between gap-8 md:flex-row">
-  {#if track.lyrics.length > 0}
-    <Lyrics lyrics={track.lyrics} />
-  {/if}
-
-  <div class="flex w-full flex-col items-end space-y-8 md:w-72">
-    <div class="w-full">
-      <Image ratio="100%" src={artwork} alt={`Artwork for ${track.title}`} />
+  <div class="flex flex-col gap-8">
+    <div class="space-y-2">
+      <div class="space-y-2">
+        <div class="flex items-baseline gap-2 relative">
+          <Heading level={context === 'album' ? 2 : 1} style="">
+            <a href={`/tracks/${track.id}`}>{track.title}</a></Heading
+          >
+          <div class="text-3xl flex items-baseline">
+            <MicroPlayer trackId={track.id} size={context === 'album' ? '2xl' : '3xl'} />
+          </div>
+        </div>
+        {#if context === 'track'}
+          <AlbumRef {album} />
+        {/if}
+      </div>
+      <ul class="flex items-center gap-6 flex-wrap">
+        {#each track.links as link}
+          <li><ListenLink {link} /></li>
+        {/each}
+      </ul>
     </div>
-    <Credits credits={track.credits} />
+    <div class="flex flex-col justify-between gap-8">
+      {#if track.lyrics.length > 0}
+        <Lyrics lyrics={track.lyrics} />
+      {/if}
+
+      <FadingRule />
+
+      <div class="flex w-full flex-col space-y-8 md:w-72">
+        <Credits credits={track.credits} />
+      </div>
+    </div>
   </div>
 </div>

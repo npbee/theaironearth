@@ -5,9 +5,9 @@
   export let credits: Array<Credit>;
 </script>
 
-<ul class="max-w-xs space-y-6 text-right text-sm">
+<ul class="max-w-xs space-y-6 text-sm">
   {#each credits as credit}
-    <li class="space-y-1">
+    <li class="space-y-0.5">
       <strong>
         <!-- eslint-disable-next-line -->
         {@html credit.credit}

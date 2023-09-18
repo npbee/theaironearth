@@ -27,6 +27,6 @@
   />
 </svelte:head>
 
-<div class="mx-auto flex max-w-3xl flex-col gap-12">
+<div class="mx-auto flex flex-col gap-8">
   <Track id={track.id} />
 </div>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import DecoratedLink from './DecoratedLink.svelte';
 
   export let source;
@@ -6,7 +6,7 @@
   const sources = Array.isArray(source) ? source : [source];
 </script>
 
-<ul class="flex flex-wrap justify-end gap-1">
+<ul class="flex flex-wrap gap-1">
   {#each sources as source}
     <li class="inline-flex whitespace-nowrap">
       {#if source.link}

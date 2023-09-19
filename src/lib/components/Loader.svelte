@@ -1,27 +1,29 @@
 <script>
-  export let size = 'sm'
+export let size = 'sm';
 
-  $: cls = ((size) => {
-    switch(size) {
-      case "xs": return "text-xs";
-      case "sm": return "text-sm";
-      case "md": return "text-md";
-      case "lg": return "text-lg";
-      case "xl": return "text-xl";
-      case "2xl": return "text-2xl";
-      case "3xl": return "text-3xl";
-      default:
-        throw new Error(`Unknown size ${size}`)
-    }
-  })(size)
+$: cls = ((size) => {
+  switch (size) {
+    case 'xs':
+      return 'text-xs';
+    case 'sm':
+      return 'text-sm';
+    case 'md':
+      return 'text-md';
+    case 'lg':
+      return 'text-lg';
+    case 'xl':
+      return 'text-xl';
+    case '2xl':
+      return 'text-2xl';
+    case '3xl':
+      return 'text-3xl';
+    default:
+      throw new Error(`Unknown size ${size}`);
+  }
+})(size);
 </script>
 
-<svg
-class={cls}
-  xmlns="http://www.w3.org/2000/svg"
-  width="1em"
-  height="1em"
-  viewBox="0 0 64 64">
+<svg class={cls} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 64 64">
   <title>Loading icon</title>
   <g fill="currentColor">
     <g class="nc-loop_circle-04-64">
@@ -32,68 +34,64 @@ class={cls}
         C58,17.66357,46.33643,6,32,6S6,17.66357,6,32c0,3.70605,0.7627,7.28418,2.26709,10.63574
         c0.67871,1.51172,0.00342,3.28711-1.5083,3.96582c-1.51367,0.67676-3.28711,0.00293-3.96533-1.50879
         C0.93994,40.96387,0,36.55859,0,32C0,14.35498,14.35498,0,32,0s32,14.35498,32,32C64,49.64453,49.64502,64,32,64z"
-        transform="rotate(58.60549999400973 32 32)" />
+        transform="rotate(58.60549999400973 32 32)"
+      />
     </g>
     <script>
-      !(function() {
-        function t(t) {
-          (this.element = t),
-            (this.circle = this.element.getElementsByTagName("path")[0]),
-            this.animationId,
-            (this.start = null),
-            this.init();
-        }
-        if (!window.requestAnimationFrame) {
-          var i = null;
-          window.requestAnimationFrame = function(t, n) {
-            var e = new Date().getTime();
-            i || (i = e);
-            var a = Math.max(0, 16 - (e - i)),
-              o = window.setTimeout(function() {
-                t(e + a);
-              }, a);
-            return (i = e + a), o;
-          };
-        }
-        (t.prototype.init = function() {
+    !(function () {
+      function t(t) {
+        (this.element = t),
+          (this.circle = this.element.getElementsByTagName('path')[0]),
+          this.animationId,
+          (this.start = null),
+          this.init();
+      }
+      if (!window.requestAnimationFrame) {
+        var i = null;
+        window.requestAnimationFrame = function (t, n) {
+          var e = new Date().getTime();
+          i || (i = e);
+          var a = Math.max(0, 16 - (e - i)),
+            o = window.setTimeout(function () {
+              t(e + a);
+            }, a);
+          return (i = e + a), o;
+        };
+      }
+      (t.prototype.init = function () {
+        var t = this;
+        this.animationId = window.requestAnimationFrame(t.triggerAnimation.bind(t));
+      }),
+        (t.prototype.reset = function () {
           var t = this;
-          this.animationId = window.requestAnimationFrame(
-            t.triggerAnimation.bind(t)
-          );
+          window.cancelAnimationFrame(t.animationId);
         }),
-          (t.prototype.reset = function() {
-            var t = this;
-            window.cancelAnimationFrame(t.animationId);
-          }),
-          (t.prototype.triggerAnimation = function(t) {
-            var i = this;
-            this.start || (this.start = t);
-            var n = t - this.start;
-            720 > n || (this.start = this.start + 720),
-              this.circle.setAttribute(
-                "transform",
-                "rotate(" + Math.min(n / 2, 360) + " 32 32)"
-              );
-            if (document.documentElement.contains(this.element))
-              window.requestAnimationFrame(i.triggerAnimation.bind(i));
-          });
-        var n = document.getElementsByClassName("nc-loop_circle-04-64"),
-          e = [];
-        if (n)
-          for (var a = 0; n.length > a; a++)
-            !(function(i) {
-              e.push(new t(n[i]));
-            })(a);
-        document.addEventListener("visibilitychange", function() {
-          "hidden" == document.visibilityState
-            ? e.forEach(function(t) {
-                t.reset();
-              })
-            : e.forEach(function(t) {
-                t.init();
-              });
+        (t.prototype.triggerAnimation = function (t) {
+          var i = this;
+          this.start || (this.start = t);
+          var n = t - this.start;
+          720 > n || (this.start = this.start + 720),
+            this.circle.setAttribute('transform', 'rotate(' + Math.min(n / 2, 360) + ' 32 32)');
+          if (document.documentElement.contains(this.element))
+            window.requestAnimationFrame(i.triggerAnimation.bind(i));
         });
-      })();
+      var n = document.getElementsByClassName('nc-loop_circle-04-64'),
+        e = [];
+      if (n)
+        for (var a = 0; n.length > a; a++)
+          !(function (i) {
+            e.push(new t(n[i]));
+          })(a);
+      document.addEventListener('visibilitychange', function () {
+        'hidden' == document.visibilityState
+          ? e.forEach(function (t) {
+              t.reset();
+            })
+          : e.forEach(function (t) {
+              t.init();
+            });
+      });
+    })();
     </script>
   </g>
 </svg>

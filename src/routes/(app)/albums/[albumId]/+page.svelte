@@ -1,16 +1,17 @@
 <script lang="ts">
-  import Image from '$lib/components/Image.svelte';
-  import Date from '$lib/components/Date.svelte';
-  import Heading from '$lib/components/Heading.svelte';
-  import Tracklist from '$lib/components/Tracklist.svelte';
-  import ListenLink from '$lib/components/ListenLink.svelte';
-  import Credits from '$lib/components/Credits.svelte';
-  import CreditSource from '$lib/components/CreditSource.svelte';
-  import Track from '$lib/components/Track.svelte';
-  import type { PageData } from './$types';
+import Image from '$lib/components/Image.svelte';
+import Date from '$lib/components/Date.svelte';
+import Heading from '$lib/components/Heading.svelte';
+import Tracklist from '$lib/components/Tracklist.svelte';
+import ListenLink from '$lib/components/ListenLink.svelte';
+import Credits from '$lib/components/Credits.svelte';
+import CreditSource from '$lib/components/CreditSource.svelte';
+import Track from '$lib/components/Track.svelte';
+import type { PageData } from './$types';
+import SubtleHeading from '$lib/components/SubtleHeading.svelte';
 
-  export let data: PageData;
-  let { album } = data;
+export let data: PageData;
+let { album } = data;
 </script>
 
 <svelte:head>
@@ -62,38 +63,42 @@
 
     <!-- Title and track list -->
     <div class="flex-1 space-y-8">
-      <div class="flex items-end justify-between">
+      <div class="flex flex-col justify-between gap-4">
         <div>
           <Date dateTime={album.date} />
-          <Heading level={1}>{album.title}</Heading>
+          <Heading level={1} style="text-5xl">{album.title}</Heading>
         </div>
-        <ul class="flex items-center gap-6">
-          {#each album.links as link}
-            <li><ListenLink {link} variant="glyph" /></li>
-          {/each}
-        </ul>
       </div>
       <Tracklist tracks={album.tracks} />
     </div>
   </div>
 
   <!-- About -->
-  <div class="flex flex-col gap-16 md:flex-row md:justify-between">
-    <div class="flex flex-col gap-6">
-      <Heading level={2}>About</Heading>
-      <!-- Description -->
-      <div class="max-w-prose space-y-4 text-lg leading-relaxed">
-        {#each album.description as p}
-          <p class="">
-            <!-- eslint-disable-next-line -->
-            {@html p}
-          </p>
-        {/each}
+  <div class="flex flex-col gap-16 md:justify-between lg:flex-row">
+    <div class="flex flex-col gap-16">
+      <div class="space-y-4">
+        <Heading level={2}>About</Heading>
+        <div class="max-w-prose space-y-4 text-lg leading-relaxed">
+          {#each album.description as p}
+            <p class="">
+              <!-- eslint-disable-next-line -->
+              {@html p}
+            </p>
+          {/each}
+        </div>
       </div>
 
-      <!-- Credits -->
+      <div class="space-y-5">
+        <SubtleHeading level="2">Links</SubtleHeading>
+        <ul class="grid items-center gap-3 sm:grid-cols-2 md:grid-cols-4">
+          {#each album.links as link}
+            <li><ListenLink link={link} variant="lockup-btn" /></li>
+          {/each}
+        </ul>
+      </div>
     </div>
-    <div class="flex w-full justify-end md:max-w-sm">
+    <div class="flex w-full flex-col gap-4 md:max-w-sm">
+      <SubtleHeading level="2">Credits</SubtleHeading>
       <Credits credits={album.credits} />
     </div>
   </div>

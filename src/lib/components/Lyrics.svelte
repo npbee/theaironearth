@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let lyrics: Array<Array<string>>;
+export let lyrics: Array<Array<string>>;
 </script>
 
 <div class="space-y-6 font-serif text-lg leading-relaxed text-muted">
@@ -13,9 +13,9 @@
 </div>
 
 <style>
-  .stanza-0 p:first-of-type:first-letter {
-    font-size: 200%;
-    letter-spacing: 0.05em;
-    line-height: 1;
-  }
+.stanza-0 p:first-of-type:first-letter {
+  font-size: 200%;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
 </style>

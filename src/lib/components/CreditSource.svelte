@@ -1,9 +1,9 @@
 <script lang="ts">
-  import DecoratedLink from './DecoratedLink.svelte';
+import DecoratedLink from './DecoratedLink.svelte';
 
-  export let source;
+export let source;
 
-  const sources = Array.isArray(source) ? source : [source];
+const sources = Array.isArray(source) ? source : [source];
 </script>
 
 <ul class="flex flex-wrap gap-1">
@@ -21,10 +21,10 @@
 </ul>
 
 <style>
-  li:after {
-    content: ', ';
-  }
-  li:last-child::after {
-    content: '';
-  }
+li:after {
+  content: ', ';
+}
+li:last-child::after {
+  content: '';
+}
 </style>

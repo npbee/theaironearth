@@ -1,5 +1,5 @@
 <script lang="ts">
-  import HeaderLink from './HeaderLink.svelte';
+import HeaderLink from './HeaderLink.svelte';
 </script>
 
 <nav class="flex gap-4 md:justify-start">

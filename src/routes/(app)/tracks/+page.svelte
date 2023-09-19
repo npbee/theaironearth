@@ -1,22 +1,20 @@
 <script lang="ts">
-  import Image from '$lib/components/Image.svelte';
-  import Heading from '$lib/components/Heading.svelte';
-  import ListenLink from '$lib/components/ListenLink.svelte';
-  import MicroPlayer from '$lib/components/MicroPlayer.svelte';
-  import AlbumRef from '$lib/components/AlbumRef.svelte';
-  import * as Data from '$lib/data';
+import Heading from '$lib/components/Heading.svelte';
+import CoverPlayer from '$lib/components/CoverPlayer.svelte';
+import AlbumRef from '$lib/components/AlbumRef.svelte';
+import * as Data from '$lib/data';
+import FadingRule from '$lib/components/FadingRule.svelte';
+import SubtleHeading from '$lib/components/SubtleHeading.svelte';
 
-  function album(track: Data.Track): Data.Album {
-    return Data.albums[track.albumId];
-  }
+function album(track: Data.Track): Data.Album {
+  return Data.albums[track.albumId];
+}
 
-  function artwork(track: Data.Track) {
-    return album(track).artwork;
-  }
+let allTracks = Array.from(Object.values(Data.tracks));
 </script>
 
 <svelte:head>
-  <title>The Air on Earth | Tracks</title>
+  <title>Tracks | The Air on Earth</title>
   <meta
     name="description"
     content="All of the tracks created by the band with their corresponding
@@ -28,34 +26,32 @@
   <meta name="twitter:description" content="Released tracks with purchase and streaming links." />
 </svelte:head>
 
-<div class="tracks grid grid-cols-1 gap-16 md:grid md:grid-cols-4">
+<div class="xborder-b flex flex-col justify-between gap-2 border-gray-800/10">
+  <div class="relative flex h-fit items-baseline justify-between gap-2 px-2">
+    <SubtleHeading level="1">Tracks</SubtleHeading>
+    <p class="small-caps text-sm font-medium text-muted">{allTracks.length} total</p>
+  </div>
+  <FadingRule />
+</div>
+<div class="tracks xborder-t flex flex-col gap-0 divide-y divide-gray-800/10 border-gray-800/10">
   {#each Object.values(Data.tracks) as track}
-    <div class="flex items-center gap-4">
-      <a class="w-32 hover:opacity-75" href={`/tracks/${track.id}`}>
-        <Image ratio="100%" src={artwork(track)} alt={`Artwork for ${track.title}`} />
-      </a>
-      <div class="flex flex-col gap-4">
-        <div class="flex flex-col justify-center">
-          <div class="flex gap-1">
-            <Heading level={3} style="text-2xl">
-              <a href={`/tracks/${track.id}`}> {track.title}</a></Heading
-            >
-            <MicroPlayer trackId={track.id} size="lg" />
-          </div>
-          <AlbumRef album={album(track)} />
+    <div class="flex flex-col items-center gap-4 py-4">
+      <div class="flex w-full gap-4">
+        <div class="w-16 text-3xl">
+          <CoverPlayer trackId={track.id} />
         </div>
-        <ul class="flex items-center gap-6 flex-wrap">
-          {#each track.links as link}
-            <li><ListenLink {link} /></li>
-          {/each}
-        </ul>
+        <div class="flex flex-1 flex-col justify-center gap-2">
+          <Heading level={2} class="text-2xl">
+            <a href={`/tracks/${track.id}`}> {track.title}</a></Heading
+          >
+          <div class="text-muted">
+            <AlbumRef album={album(track)} />
+          </div>
+        </div>
+        <div class="flex items-center px-2 text-sm font-semibold text-muted">
+          {track.length}
+        </div>
       </div>
     </div>
   {/each}
 </div>
-
-<style>
-  .tracks {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
-</style>

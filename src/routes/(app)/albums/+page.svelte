@@ -1,9 +1,9 @@
 <script>
-  import Date from '$lib/components/Date.svelte';
-  import Image from '$lib/components/Image.svelte';
-  import Heading from '$lib/components/Heading.svelte';
-  import ListenLink from '$lib/components/ListenLink.svelte';
-  import { albums } from '$lib/data';
+import Date from '$lib/components/Date.svelte';
+import Image from '$lib/components/Image.svelte';
+import Heading from '$lib/components/Heading.svelte';
+import ListenLink from '$lib/components/ListenLink.svelte';
+import { albums } from '$lib/data';
 </script>
 
 <svelte:head>
@@ -31,14 +31,14 @@
         <div>
           <Date dateTime={album.date} />
           <a href={`/albums/${album.id}`} class="block">
-            <Heading level={2}>
+            <Heading level={2} style="text-4xl">
               {album.title}
             </Heading>
           </a>
         </div>
-        <ul class="flex items-center flex-wrap gap-6">
+        <ul class="flex flex-wrap items-center gap-6">
           {#each album.links as link}
-            <li><ListenLink {link} /></li>
+            <li><ListenLink link={link} /></li>
           {/each}
         </ul>
       </div>

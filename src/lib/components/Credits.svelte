@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Credit } from '$lib/data';
-  import CreditSource from './CreditSource.svelte';
+import type { Credit } from '$lib/data';
+import CreditSource from './CreditSource.svelte';
 
-  export let credits: Array<Credit>;
+export let credits: Array<Credit>;
 </script>
 
 <ul class="max-w-xs space-y-6 text-sm">

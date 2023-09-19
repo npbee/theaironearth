@@ -88,8 +88,8 @@
 </svg>
 
 <style>
-  .earth {
-    transition: fill 200ms;
-    fill: var(--accent, currentColor);
-  }
+.earth {
+  transition: fill 200ms;
+  fill: var(--accent, currentColor);
+}
 </style>

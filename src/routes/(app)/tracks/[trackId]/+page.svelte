@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Track from '$lib/components/Track.svelte';
-  import type { PageData } from './$types';
+import Track from '$lib/components/Track.svelte';
+import type { PageData } from './$types';
 
-  export let data: PageData;
-  let { track } = data;
+export let data: PageData;
+let { track } = data;
 </script>
 
 <svelte:head>

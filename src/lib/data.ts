@@ -50,6 +50,7 @@ export interface Album {
   id: string;
   title: string;
   tracks: Track[];
+  coverStyle: 'dark' | 'light';
   artwork: string;
   extraArtwork?: {
     src: string;
@@ -134,6 +135,7 @@ const GoodSport = registerAlbum({
   id: 'good-sport',
   title: 'Good Sport',
   artwork: 'artwork/good-sport-front',
+  coverStyle: 'dark',
   extraArtwork: {
     src: 'artwork/good-sport-booklet.pdf',
     name: 'Artwork Booklet',
@@ -214,6 +216,7 @@ const TheAirOnEarth = registerAlbum({
   id: 'the-air-on-earth',
   artwork: 'artwork/the-air-on-earth-front',
   date: 'February 23, 2015',
+  coverStyle: 'light',
   description: [
     '<em>The Air on Earth</em> is a musical project chronicling the passage of time and many stages of life, both significant and not.  Written and recorded over several years, the songs themselves reflect these stages in feeling and maturity.  Sentimental and perhaps distorted, each song is a source of nostalgia and reflects a moment in time.',
   ],

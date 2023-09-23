@@ -26,16 +26,16 @@ let allTracks = Array.from(Object.values(Data.tracks));
   <meta name="twitter:description" content="Released tracks with purchase and streaming links." />
 </svelte:head>
 
-<div class="xborder-b flex flex-col justify-between gap-2 border-gray-800/10">
+<div class="flex flex-col justify-between gap-2">
   <div class="relative flex h-fit items-baseline justify-between gap-2 px-2">
     <SubtleHeading level="1">Tracks</SubtleHeading>
     <p class="small-caps text-sm font-medium text-muted">{allTracks.length} total</p>
   </div>
   <FadingRule />
 </div>
-<div class="tracks xborder-t flex flex-col gap-0 divide-y divide-gray-800/10 border-gray-800/10">
+<div class="tracks flex flex-col gap-0 divide-y divide-gray-800/10">
   {#each Object.values(Data.tracks) as track}
-    <div class="flex flex-col items-center gap-4 py-4">
+    <div class="flex w-full flex-col items-center gap-4 py-4">
       <div class="flex w-full gap-4">
         <div class="w-16 text-3xl">
           <CoverPlayer trackId={track.id} />

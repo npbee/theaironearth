@@ -4,17 +4,19 @@ import MicroPlayer from './MicroPlayer.svelte';
 export let tracks: Array<Track>;
 </script>
 
-<ol class="flex flex-col gap-3">
+<ol class="flex flex-col divide-y divide-gray-800/20 border-b border-gray-800/20">
   {#each tracks as track}
-    <li class="flex items-center gap-2">
-      <MicroPlayer trackId={track.id} />
+    <li class="flex items-center gap-2 py-2">
+      <div class="text-2xl">
+        <MicroPlayer trackId={track.id} />
+      </div>
       <a
         href={`/tracks/${track.id}`}
         data-track-list-track="true"
-        class="flex flex-1 justify-between border-b-2 border-dashed border-gray-400"
+        class="flex flex-1 items-center justify-between"
       >
-        <span>{track.title}</span>
-        <span>{track.length}</span>
+        <span class="small-caps text-sm font-medium">{track.title}</span>
+        <span class="text-sm font-medium text-muted">{track.length}</span>
       </a>
     </li>
   {/each}

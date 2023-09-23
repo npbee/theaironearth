@@ -95,7 +95,6 @@
       /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></symbol
     >
     <symbol id="play" width="1em" height="1em" viewBox="0 0 48 48">
-      <title>Play</title>
       <g>
         <path
           fill="currentColor"
@@ -113,7 +112,6 @@
     </symbol>
 
     <symbol id="pause" width="1em" height="1em" viewBox="0 0 48 48">
-      <title>Pause</title>
       <g>
         <path
           fill="currentColor"

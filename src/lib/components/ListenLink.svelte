@@ -8,13 +8,13 @@ export let variant: 'lockup' | 'lockup-btn' | 'glyph' = 'lockup';
 function linkTitle(link: ListenLink) {
   switch (link.type) {
     case 'soundcloud':
-      return 'Soundcloud';
+      return 'Listen on Soundcloud';
     case 'bandcamp':
-      return 'Bandcamp';
+      return 'Listen on Bandcamp';
     case 'spotify':
-      return 'Spotify';
+      return 'Listen on Spotify';
     case 'apple-music':
-      return 'Apple Music';
+      return 'Listen on Apple Music';
   }
 }
 </script>
@@ -30,13 +30,13 @@ function linkTitle(link: ListenLink) {
       class="flex aspect-square w-6 items-center justify-center p-1 opacity-50 group-hover:opacity-100"
     >
       {#if link.type === 'spotify'}
-        <img class="" src="/logos/spotify-small.svg" alt="Spotify" />
+        <img class="" src="/logos/spotify-small.svg" alt="" />
       {:else if link.type === 'apple-music'}
-        <img class="" src="/logos/apple-music-small.svg" alt="Apple Music" />
+        <img class="" src="/logos/apple-music-small.svg" alt="" />
       {:else if link.type === 'bandcamp'}
-        <img class="" src="/logos/bandcamp-small.png" alt="Bandcamp" />
+        <img class="" src="/logos/bandcamp-small.png" alt="" />
       {:else if link.type === 'soundcloud'}
-        <img class="" src="/logos/soundcloud-small.png" alt="Soundcloud" />
+        <img class="" src="/logos/soundcloud-small.png" alt="" />
       {/if}
     </span>
     <span class="sr-only">{linkTitle(link)}</span>
@@ -50,13 +50,13 @@ function linkTitle(link: ListenLink) {
   >
     <span class="sr-only">{linkTitle(link)}</span>
     {#if link.type === 'spotify'}
-      <img class="w-[70px] px-2" src="/logos/spotify.png" alt="Spotify" />
+      <img class="w-[70px] px-2" src="/logos/spotify.png" alt="" />
     {:else if link.type === 'apple-music'}
-      <img class="w-[95px] px-2" src="/logos/apple-music.svg" alt="Apple Music" />
+      <img class="w-[95px] px-2" src="/logos/apple-music.svg" alt="" />
     {:else if link.type === 'bandcamp'}
-      <img class="w-[85px]" src="/logos/bandcamp.png" alt="Bandcamp" />
+      <img class="w-[85px]" src="/logos/bandcamp.png" alt="" />
     {:else if link.type === 'soundcloud'}
-      <img class="w-28 px-2" src="/logos/soundcloud.png" alt="Soundcloud" />
+      <img class="w-28 px-2" src="/logos/soundcloud.png" alt="" />
     {/if}
   </a>
 {:else if variant === 'lockup-btn'}
@@ -68,13 +68,13 @@ function linkTitle(link: ListenLink) {
   >
     <span class="sr-only">{linkTitle(link)}</span>
     {#if link.type === 'spotify'}
-      <img class="w-[70px] px-2" src="/logos/spotify.png" alt="Spotify" />
+      <img class="w-[70px] px-2" src="/logos/spotify.png" alt="" />
     {:else if link.type === 'apple-music'}
-      <img class="w-[95px] px-2" src="/logos/apple-music.svg" alt="Apple Music" />
+      <img class="w-[95px] px-2" src="/logos/apple-music.svg" alt="" />
     {:else if link.type === 'bandcamp'}
-      <img class="w-[85px]" src="/logos/bandcamp.png" alt="Bandcamp" />
+      <img class="w-[85px]" src="/logos/bandcamp.png" alt="" />
     {:else if link.type === 'soundcloud'}
-      <img class="w-28 px-2" src="/logos/soundcloud.png" alt="Soundcloud" />
+      <img class="w-28 px-2" src="/logos/soundcloud.png" alt="" />
     {/if}
   </a>
 {/if}

@@ -1,29 +1,10 @@
-<script>
-export let size = 'sm';
-
-$: cls = ((size) => {
-  switch (size) {
-    case 'xs':
-      return 'text-xs';
-    case 'sm':
-      return 'text-sm';
-    case 'md':
-      return 'text-md';
-    case 'lg':
-      return 'text-lg';
-    case 'xl':
-      return 'text-xl';
-    case '2xl':
-      return 'text-2xl';
-    case '3xl':
-      return 'text-3xl';
-    default:
-      throw new Error(`Unknown size ${size}`);
-  }
-})(size);
-</script>
-
-<svg class={cls} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 64 64">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1em"
+  height="1em"
+  viewBox="0 0 64 64"
+  role="presentation"
+>
   <title>Loading icon</title>
   <g fill="currentColor">
     <g class="nc-loop_circle-04-64">

@@ -1,9 +1,23 @@
-<script>
+<script lang="ts">
 import Date from '$lib/components/Date.svelte';
 import Image from '$lib/components/Image.svelte';
 import Heading from '$lib/components/Heading.svelte';
 import ListenLink from '$lib/components/ListenLink.svelte';
-import { albums } from '$lib/data';
+import { albums, tracks, type Album } from '$lib/data';
+import SubtleHeading from '$lib/components/SubtleHeading.svelte';
+import FadingRule from '$lib/components/FadingRule.svelte';
+import Tracklist from '$lib/components/Tracklist.svelte';
+import CoverPlayer from '$lib/components/CoverPlayer.svelte';
+
+let albumCount = Object.keys(albums).length;
+
+function getFirstTrackId(album: Album) {
+  let firstTrack = album.tracks.at(0);
+  if (!firstTrack) {
+    throw new Error('No first track?');
+  }
+  return firstTrack.id;
+}
 </script>
 
 <svelte:head>
@@ -14,34 +28,59 @@ import { albums } from '$lib/data';
   <meta name="twitter:description" content="Released tracks with purchase and streaming links." />
 </svelte:head>
 
-<section class="flex grid-cols-2 flex-col gap-24 md:grid md:gap-4">
-  {#each Object.values(albums) as album}
-    <div class="flex flex-col gap-4">
-      <a href={`/albums/${album.id}`} class="md:max-w-md">
-        <Image
-          ratio="100%"
-          src={album.artwork}
-          alt={`Album artwork for ${album.title}`}
-          sizes={[{ breakpoint: 0, w: 500 }]}
-          defaultSize={500}
-          loading="eager"
-        />
-      </a>
-      <div class="mb-16 space-y-4">
-        <div>
-          <Date dateTime={album.date} />
-          <a href={`/albums/${album.id}`} class="block">
-            <Heading level={2} style="text-4xl">
-              {album.title}
-            </Heading>
-          </a>
-        </div>
-        <ul class="flex flex-wrap items-center gap-6">
-          {#each album.links as link}
-            <li><ListenLink link={link} /></li>
-          {/each}
-        </ul>
+<div class="space-y-24">
+  <section>
+    <div class="flex flex-col justify-between gap-2">
+      <div class="relative flex h-fit items-baseline justify-between gap-2 px-2">
+        <SubtleHeading level="1">Albums</SubtleHeading>
+        <p class="small-caps text-sm font-medium text-muted">{albumCount} total</p>
       </div>
+      <FadingRule />
     </div>
-  {/each}
-</section>
+    <div class="flex flex-col divide-y divide-gray-800/10 border-b border-gray-800/10">
+      {#each Object.values(albums) as album}
+        <div class="flex flex-col gap-4 py-8 md:flex-row">
+          <div class="w-full text-5xl md:w-48">
+            <CoverPlayer trackId={getFirstTrackId(album)} />
+          </div>
+          <div class="flex flex-1 flex-col justify-between gap-4 py-2">
+            <div class="flex items-baseline justify-between gap-6">
+              <div>
+                <a href={`/albums/${album.id}`} class="block">
+                  <Heading level={2}>
+                    {album.title}
+                  </Heading>
+                </a>
+                <Date dateTime={album.date} />
+              </div>
+              <p class="small-caps px-2 text-sm font-medium">{album.tracks.length} tracks</p>
+            </div>
+            <div class="space-y-5">
+              <ul
+                class="hidden flex-col gap-4 opacity-75 hover:opacity-100 md:flex md:w-3/4 md:flex-row"
+              >
+                {#each album.links as link}
+                  <li><ListenLink link={link} variant="lockup" /></li>
+                {/each}
+              </ul>
+              <ul class="flex flex-col gap-4 md:hidden md:w-3/4 md:flex-row">
+                {#each album.links as link}
+                  <li><ListenLink link={link} variant="lockup-btn" /></li>
+                {/each}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {/each}
+    </div>
+  </section>
+
+  <!-- <section> -->
+  <!--   <div class="flex flex-col justify-between gap-2"> -->
+  <!--     <div class="relative flex h-fit items-baseline justify-between gap-2 px-2"> -->
+  <!--       <SubtleHeading level="1">Other Work</SubtleHeading> -->
+  <!--     </div> -->
+  <!--     <FadingRule /> -->
+  <!--   </div> -->
+  <!-- </section> -->
+</div>

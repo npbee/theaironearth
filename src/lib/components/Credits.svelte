@@ -5,7 +5,7 @@ import CreditSource from './CreditSource.svelte';
 export let credits: Array<Credit>;
 </script>
 
-<ul class="max-w-xs space-y-6 text-sm">
+<ul class="space-y-6 text-sm">
   {#each credits as credit}
     <li class="space-y-0.5">
       <strong>

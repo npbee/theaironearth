@@ -75,10 +75,10 @@ let { album } = data;
 
   <!-- About -->
   <div class="flex flex-col gap-16 md:justify-between lg:flex-row">
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-[2] flex-col gap-10">
       <div class="space-y-4">
         <Heading level={2}>About</Heading>
-        <div class="max-w-prose space-y-4 text-lg leading-relaxed">
+        <div class="space-y-4 text-lg leading-relaxed">
           {#each album.description as p}
             <p class="">
               <!-- eslint-disable-next-line -->
@@ -87,19 +87,22 @@ let { album } = data;
           {/each}
         </div>
       </div>
-
+    </div>
+    <div class="flex-1 space-y-10">
+      <div>
+        <div class="flex w-full flex-col gap-4">
+          <SubtleHeading level="2">Credits</SubtleHeading>
+          <Credits credits={album.credits} />
+        </div>
+      </div>
       <div class="space-y-5">
         <SubtleHeading level="2">Links</SubtleHeading>
-        <ul class="grid items-center gap-3 sm:grid-cols-2 md:grid-cols-4">
+        <ul class="grid items-center gap-3 sm:grid-cols-2">
           {#each album.links as link}
             <li><ListenLink link={link} variant="lockup-btn" /></li>
           {/each}
         </ul>
       </div>
-    </div>
-    <div class="flex w-full flex-col gap-4 md:max-w-sm">
-      <SubtleHeading level="2">Credits</SubtleHeading>
-      <Credits credits={album.credits} />
     </div>
   </div>
 

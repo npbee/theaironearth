@@ -771,7 +771,7 @@ registerTrack({
       l: 50,
     },
   },
-  links: [bc('good-sport'), sc('good-sport'), spotify('track/22mwiRps7oowfHX4XQPWG6')],
+  links: [bc('good-sport'), sc('good-sport'), spotify('track/22mwiRps7oowfHX4XQPWG6'), ap("https://music.apple.com/us/album/good-sport/1491613444?i=1491613445")],
 });
 
 registerTrack({
@@ -833,7 +833,7 @@ registerTrack({
       l: 28,
     },
   },
-  links: [bc('sprint'), sc('sprint'), spotify('track/1anztlSmPxEM0XZEv3KCyx')],
+  links: [bc('sprint'), sc('sprint'), spotify('track/1anztlSmPxEM0XZEv3KCyx'), ap("https://music.apple.com/us/album/sprint/1491613444?i=1491613566")],
 });
 
 registerTrack({
@@ -889,7 +889,7 @@ registerTrack({
       l: 33,
     },
   },
-  links: [bc('rest'), sc('rest'), spotify('track/5fqgN15DVKhH7TjUkvjVQD')],
+  links: [bc('rest'), sc('rest'), spotify('track/5fqgN15DVKhH7TjUkvjVQD'), ap("https://music.apple.com/us/album/rest/1491613444?i=1491613567")],
 });
 
 registerTrack({
@@ -947,7 +947,7 @@ registerTrack({
       l: 37,
     },
   },
-  links: [bc('recur'), sc('recur'), spotify('track/3CLNv2LLvLpokLOAgXE13Y')],
+  links: [bc('recur'), sc('recur'), spotify('track/3CLNv2LLvLpokLOAgXE13Y'), ap("https://music.apple.com/us/album/recur/1491613444?i=1491613568")],
 });
 
 registerTrack({
@@ -956,7 +956,7 @@ registerTrack({
   length: '7:06',
   albumId: 'good-sport',
   artwork: 'artwork/run-long',
-  links: [bc('run-long'), sc('run-long'), spotify('track/4EB16Im3JIBo2SnHreDlbU')],
+  links: [bc('run-long'), sc('run-long'), spotify('track/4EB16Im3JIBo2SnHreDlbU'), ap("https://music.apple.com/us/album/run-long/1491613444?i=1491613569")],
   lyrics: [
     [
       'I will know what you have done',
@@ -1009,7 +1009,7 @@ registerTrack({
   albumId: 'good-sport',
   artwork: 'artwork/bliss',
   length: '5:04',
-  links: [bc('bliss'), sc('bliss'), spotify('track/2yARNpMvIsECGv4RYK7sMM')],
+  links: [bc('bliss'), sc('bliss'), spotify('track/2yARNpMvIsECGv4RYK7sMM'), ap("https://music.apple.com/us/album/bliss/1491613444?i=1491613570")],
   lyrics: [
     [
       'And the hate floats',
@@ -1074,7 +1074,7 @@ registerTrack({
   length: '4:20',
   albumId: 'good-sport',
   artwork: 'artwork/drone',
-  links: [bc('drone'), sc('drone'), spotify('track/7rIZsaL1CAecX31Mbjg6lj')],
+  links: [bc('drone'), sc('drone'), spotify('track/7rIZsaL1CAecX31Mbjg6lj'), ap("https://music.apple.com/us/album/drone/1491613444?i=1491613571")],
   lyrics: [
     ['My only sweep', 'My only vice', 'Run and wake him up', 'For all the tides'],
     [
@@ -1133,7 +1133,7 @@ registerTrack({
   length: '5:54',
   albumId: 'good-sport',
   artwork: 'artwork/hollow',
-  links: [bc('hollow'), sc('hollow'), spotify('track/3jFsyAwjlVjwF2G7vCc4Fy')],
+  links: [bc('hollow'), sc('hollow'), spotify('track/3jFsyAwjlVjwF2G7vCc4Fy'), ap("https://music.apple.com/us/album/hollow/1491613444?i=1491613572")],
   lyrics: [
     [
       'In the reeds that we love',

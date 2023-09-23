@@ -14,7 +14,10 @@ export let data: PageData;
 let shouldAnimate = data.shouldAnimate;
 </script>
 
-<Meta title="The Air on Earth" description="An ambient pop music project based in Portland, OR" />
+<Meta
+  title="The Air on Earth"
+  description="Wandering, ambient pop music that's patient and immersive."
+/>
 
 <Bg />
 <IconSprite />

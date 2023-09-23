@@ -4,16 +4,13 @@ import ListenLink from '$lib/components/ListenLink.svelte';
 import Heading from '$lib/components/Heading.svelte';
 import { site } from '$lib/data';
 import SubtleHeading from '$lib/components/SubtleHeading.svelte';
+import Meta from '$lib/components/Meta.svelte';
 </script>
 
-<svelte:head>
-  <title>The Air on Earth | About</title>
-  <meta name="description" content="History and bio" />
-  <meta name="description" content="History and bio" />
-  <meta property="og:description" content="History and bio" />
-  <meta property="og:url" content="https://theaironearth.com/about" />
-  <meta name="twitter:description" content="History and bio" />
-</svelte:head>
+<Meta
+  title="About | The Air on Earth"
+  description="Wandering, ambient pop music that's patient and immersive."
+/>
 
 <section class="flex flex-col gap-10 md:flex-row">
   <div class="flex-1">

@@ -2,25 +2,19 @@
 import '../app.css';
 import Nav from '$lib/components/Nav.svelte';
 import Bg from '$lib/components/Bg.svelte';
-import Footer from '$lib/components/Footer.svelte';
 import IconSprite from '$lib/components/Icons.svelte';
 import Logo from '$lib/components//Logo.svelte';
 import type { PageData } from './$types';
 import SiteListenLinks from '$lib/components/SiteListenLinks.svelte';
 import SocialLinks from '$lib/components/SocialLinks.svelte';
+import Meta from '$lib/components/Meta.svelte';
 
 export let data: PageData;
 
 let shouldAnimate = data.shouldAnimate;
 </script>
 
-<svelte:head>
-  <title>The Air on Earth</title>
-  <meta name="description" content="Ambient/pop/electronic music project" />
-  <meta property="og:description" content="Ambient/pop/electronic music project based" />
-  <meta property="og:url" content="https://theaironearth.com" />
-  <meta name="twitter:description" content="Ambient/pop/electronic music project based" />
-</svelte:head>
+<Meta title="The Air on Earth" description="An ambient pop music project based in Portland, OR" />
 
 <Bg />
 <IconSprite />

@@ -60,7 +60,7 @@ function waypoint(node: Element) {
 }
 
 function pic(w: number, format: Format) {
-  return url(`w_${w}`, `${src}.${format}`);
+  return url(`${src}.${format}`, `w_${w}`);
 }
 
 let lqip = pic(20, 'jpg');

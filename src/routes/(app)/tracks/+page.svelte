@@ -5,6 +5,7 @@ import AlbumRef from '$lib/components/AlbumRef.svelte';
 import * as Data from '$lib/data';
 import FadingRule from '$lib/components/FadingRule.svelte';
 import SubtleHeading from '$lib/components/SubtleHeading.svelte';
+import Meta from '$lib/components/Meta.svelte';
 
 function album(track: Data.Track): Data.Album {
   return Data.albums[track.albumId];
@@ -13,18 +14,7 @@ function album(track: Data.Track): Data.Album {
 let allTracks = Array.from(Object.values(Data.tracks));
 </script>
 
-<svelte:head>
-  <title>Tracks | The Air on Earth</title>
-  <meta
-    name="description"
-    content="All of the tracks created by the band with their corresponding
-    purchase and streaming links."
-  />
-  <meta name="description" content="Released tracks with purchase and streaming links." />
-  <meta property="og:description" content="Released tracks with purchase and streaming links." />
-  <meta property="og:url" content="https://theaironearth.com/tracks" />
-  <meta name="twitter:description" content="Released tracks with purchase and streaming links." />
-</svelte:head>
+<Meta title="Tracks | The Air on Earth" description="All tracks released by The Air on Earth" />
 
 <div class="flex flex-col justify-between gap-2">
   <div class="relative flex h-fit items-baseline justify-between gap-2 px-2">

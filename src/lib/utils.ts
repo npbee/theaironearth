@@ -1,9 +1,9 @@
 import type * as Data from './data';
 
-const CLOUDINARY_BASE = 'https://res.cloudinary.com/dhhjogfy6/';
+const CLOUDINARY_BASE = 'https://res.cloudinary.com/dhhjogfy6';
 
-export function cloudinaryImgUrl(transform: string, src: string) {
-  return `${CLOUDINARY_BASE}/image/upload/${transform}/v1575831765/img/${src}`;
+export function cloudinaryImgUrl(src: string, transform?: string) {
+  return `${CLOUDINARY_BASE}/image/upload/${transform ? transform + '/' : ''}v1575831765/img/${src}`;
 }
 
 export function cloudinaryAudioUrl(trackId: string): string {

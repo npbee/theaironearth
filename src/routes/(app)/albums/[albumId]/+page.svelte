@@ -9,31 +9,16 @@ import CreditSource from '$lib/components/CreditSource.svelte';
 import Track from '$lib/components/Track.svelte';
 import type { PageData } from './$types';
 import SubtleHeading from '$lib/components/SubtleHeading.svelte';
+import Meta from '$lib/components/Meta.svelte';
 
 export let data: PageData;
 let { album } = data;
 </script>
 
-<svelte:head>
-  <title>The Air on Earth | {album.title}</title>
-  <meta
-    name="description"
-    content={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
-  />
-  <meta
-    name="description"
-    content={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
-  />
-  <meta
-    property="og:description"
-    content={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
-  />
-  <meta property="og:url" content={`https://theaironearth.com/album/${album.id}`} />
-  <meta
-    name="twitter:description"
-    content={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
-  />
-</svelte:head>
+<Meta
+  title={`${album.title} | The Air on Earth`}
+  description={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
+/>
 
 <div class="space-y-48">
   <!-- Artwork/Tracklist -->

@@ -1,13 +1,12 @@
 <script lang="ts">
 import Date from '$lib/components/Date.svelte';
-import Image from '$lib/components/Image.svelte';
 import Heading from '$lib/components/Heading.svelte';
 import ListenLink from '$lib/components/ListenLink.svelte';
-import { albums, tracks, type Album } from '$lib/data';
+import { albums, type Album } from '$lib/data';
 import SubtleHeading from '$lib/components/SubtleHeading.svelte';
 import FadingRule from '$lib/components/FadingRule.svelte';
-import Tracklist from '$lib/components/Tracklist.svelte';
 import CoverPlayer from '$lib/components/CoverPlayer.svelte';
+import Meta from '$lib/components/Meta.svelte';
 
 let albumCount = Object.keys(albums).length;
 
@@ -20,13 +19,7 @@ function getFirstTrackId(album: Album) {
 }
 </script>
 
-<svelte:head>
-  <title>The Air on Earth | Albums</title>
-  <meta name="description" content="Released albums with purchase and streaming links." />
-  <meta property="og:description" content="Released albums with purchase and streaming links." />
-  <meta property="og:url" content="https://theaironearth.com/albums" />
-  <meta name="twitter:description" content="Released tracks with purchase and streaming links." />
-</svelte:head>
+<Meta title="Albums | The Air on Earth" description="Albums released by The Air on Earth" />
 
 <div class="space-y-24">
   <section>

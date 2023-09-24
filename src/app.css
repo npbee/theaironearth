@@ -31,6 +31,11 @@
     height: 100%;
   }
 
+  button:focus, 
+  a:focus {
+    @apply focus:outline-none focus-visible:ring focus-visible:ring-accent-400;
+  }
+
   a:hover {
     @apply underline;
   }

@@ -1,5 +1,6 @@
 import { get, writable } from "svelte/store";
-import { cloudinaryAudioUrl } from "./utils";
+import { cloudinaryAudioUrl, generateTheme } from "./utils";
+import { tracks } from "$lib/data";
 
 interface LoadingState {
   status: 'loading',
@@ -78,6 +79,8 @@ async function play(trackId: string) {
   try {
     await audioElement.play();
 
+    injectTrackTheme(trackId)
+
     store.set({
       status: 'playing',
       trackId,
@@ -94,4 +97,24 @@ async function play(trackId: string) {
       trackId,
     })
   }
+}
+
+export function injectTrackTheme(trackId: string) {
+  const theme = generateTheme(tracks[trackId]);
+
+  setCustomProp(`--accent`, theme.main);
+  setCustomProp(`--accent-high-contrast`, theme.highContrast);
+}
+
+export function ejectTrackTheme() {
+  removeCustomProp('--accent');
+  removeCustomProp('--accent-high-contrast');
+}
+
+function setCustomProp(prop: string, value: string) {
+  document.documentElement.style.setProperty(prop, value);
+}
+
+function removeCustomProp(prop: string) {
+  document.documentElement.style.removeProperty(prop);
 }

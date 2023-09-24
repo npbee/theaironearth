@@ -33,7 +33,13 @@
 
   button:focus, 
   a:focus {
-    @apply focus:outline-none focus-visible:ring focus-visible:ring-accent-400;
+    outline: none;
+  }
+
+  button:focus-visible, 
+  a:focus-visible {
+    outline: none;
+    @apply focus-visible:ring focus-visible:ring-accent-400;
   }
 
   a:hover {

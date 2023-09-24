@@ -4,7 +4,7 @@ import Track from '$lib/components/Track.svelte';
 import type { PageData } from './$types';
 
 export let data: PageData;
-let { track } = data;
+$: track = data.track;
 </script>
 
 <Meta
@@ -13,5 +13,7 @@ let { track } = data;
 />
 
 <div class="mx-auto flex flex-col gap-8">
-  <Track id={track.id} />
+  {#key track.id}
+    <Track id={track.id} />
+  {/key}
 </div>

@@ -31,8 +31,5 @@
     "vite": "^4.4.2",
     "vite-node": "^0.34.3"
   },
-  "type": "module",
-  "dependencies": {
-    "@xstate/fsm": "^2.1.0"
-  }
+  "type": "module"
 }

@@ -1,6 +1,6 @@
 import { get, writable } from "svelte/store";
 import { cloudinaryAudioUrl, generateTheme } from "./utils";
-import { tracks } from "$lib/data";
+import { playlistOrder, tracks } from "$lib/data";
 
 interface LoadingState {
   status: 'loading',
@@ -74,9 +74,11 @@ export const player = {
 }
 
 
+let onEnd: () => void = () => { };
 
 async function play(trackId: string) {
   try {
+    audioElement.removeEventListener('ended', onEnd);
     await audioElement.play();
 
     injectTrackTheme(trackId)
@@ -85,6 +87,13 @@ async function play(trackId: string) {
       status: 'playing',
       trackId,
     })
+
+    onEnd = () => {
+      const nextTrackId = nextTrack(trackId);
+      player.start(nextTrackId);
+    }
+
+    audioElement.addEventListener('ended', onEnd)
 
   } catch (err) {
     // Safari wants another user-initiated click to actually start the audio
@@ -117,4 +126,16 @@ function setCustomProp(prop: string, value: string) {
 
 function removeCustomProp(prop: string) {
   document.documentElement.style.removeProperty(prop);
+}
+
+function nextTrack(currentTrackId: string) {
+  if (currentTrackId) {
+    const currentTrackIndex = playlistOrder.indexOf(currentTrackId);
+    const nextTrackIndex = (currentTrackIndex + 1) % playlistOrder.length;
+    const nextTrackId = playlistOrder[nextTrackIndex];
+    return nextTrackId;
+  } else {
+    const nextTrackId = playlistOrder[0];
+    return nextTrackId;
+  }
 }

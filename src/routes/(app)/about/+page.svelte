@@ -22,7 +22,7 @@ import Meta from '$lib/components/Meta.svelte';
     <div class="max-w-prose flex-[2] space-y-4 leading-relaxed">
       <div class="">
         <SubtleHeading level="1">About</SubtleHeading>
-        <Heading level={3}>The Air on Earth</Heading>
+        <Heading level={2}>The Air on Earth</Heading>
       </div>
       <p class="">
         Recording as The Air on Earth, Nick Ball creates wandering, ambient pop music that's patient

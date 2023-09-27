@@ -77,7 +77,7 @@ export const otherWorks: Array<OtherWork> = [
   },
   {
     id: 's-carey_all-we-grow',
-    artwork: 'artwork/eqkxvzqxlruwbkr8pgzi',
+    artwork: 'artwork/yg1ezjeagynfhlwsbtxu',
     title: 'All We Grow',
     artist: 'S. Carey',
     year: 2012,

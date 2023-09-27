@@ -9,8 +9,6 @@ import Meta from '$lib/components/Meta.svelte';
 import Image from '$lib/components/Image.svelte';
 import TextListenLinkList from '$lib/components/TextListenLinkList.svelte';
 
-let albumCount = Object.keys(albums).length;
-
 function getFirstTrackId(album: Album) {
   let firstTrack = album.tracks.at(0);
   if (!firstTrack) {
@@ -48,7 +46,6 @@ function getFirstTrackId(album: Album) {
                   </Heading>
                 </a>
               </div>
-              <!-- <Date dateTime={album.date} /> -->
               <p class="small-caps px-2 text-sm font-medium">{album.tracks.length} tracks</p>
             </div>
             <TextListenLinkList links={album.links} />
@@ -93,9 +90,3 @@ function getFirstTrackId(album: Album) {
     </div>
   </section>
 </div>
-
-<style>
-.other-works {
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
-</style>

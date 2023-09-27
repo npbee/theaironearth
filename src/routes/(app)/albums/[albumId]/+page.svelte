@@ -10,6 +10,7 @@ import Track from '$lib/components/Track.svelte';
 import type { PageData } from './$types';
 import SubtleHeading from '$lib/components/SubtleHeading.svelte';
 import Meta from '$lib/components/Meta.svelte';
+import TextListenLinkList from '$lib/components/TextListenLinkList.svelte';
 
 export let data: PageData;
 let { album } = data;
@@ -20,7 +21,7 @@ let { album } = data;
   description={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
 />
 
-<div class="space-y-48">
+<div class="space-y-24">
   <!-- Artwork/Tracklist -->
   <div class="flex flex-col gap-4 md:flex-row md:gap-8">
     <!-- Artwork -->
@@ -48,11 +49,12 @@ let { album } = data;
 
     <!-- Title and track list -->
     <div class="flex-1 space-y-8">
-      <div class="flex flex-col justify-between gap-4">
+      <div class="flex flex-col justify-between gap-3">
         <div>
           <Date dateTime={album.date} />
           <Heading level={1} style="text-5xl">{album.title}</Heading>
         </div>
+        <TextListenLinkList links={album.links} />
       </div>
       <Tracklist tracks={album.tracks} />
     </div>

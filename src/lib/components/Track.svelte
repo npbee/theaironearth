@@ -9,6 +9,7 @@ import Image from './Image.svelte';
 import Lyrics from './Lyrics.svelte';
 import Credits from './Credits.svelte';
 import SubtleHeading from './SubtleHeading.svelte';
+import TextListenLinkList from './TextListenLinkList.svelte';
 
 export let id: string;
 export let context = 'track';
@@ -63,11 +64,7 @@ let artwork = track.artwork ?? album.artwork;
 
     <div class="space-y-3">
       <SubtleHeading level="2" id="links">Links</SubtleHeading>
-      <ul class="grid flex-col flex-wrap gap-2 md:grid-cols-2">
-        {#each track.links as link}
-          <li><ListenLink link={link} variant="lockup-btn" /></li>
-        {/each}
-      </ul>
+      <TextListenLinkList links={track.links} />
     </div>
   </div>
 </div>

@@ -156,5 +156,18 @@
         1.414s1.024 0.391 1.414 0z"
       />
     </symbol>
+    <symbol
+      id="slash"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-slash"><path d="M22 2 2 22" /></symbol
+    >
   </defs>
 </svg>

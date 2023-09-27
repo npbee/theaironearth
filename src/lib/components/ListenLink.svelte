@@ -3,7 +3,7 @@ import type { ListenLink } from '$lib/data';
 
 export let link: ListenLink;
 
-export let variant: 'lockup' | 'lockup-btn' | 'glyph' = 'lockup';
+export let variant: 'lockup' | 'lockup-btn' | 'glyph' | 'text' = 'lockup';
 
 function linkTitle(link: ListenLink) {
   switch (link.type) {
@@ -75,6 +75,23 @@ function linkTitle(link: ListenLink) {
       <img class="w-[85px]" src="/logos/bandcamp.png" alt="" />
     {:else if link.type === 'soundcloud'}
       <img class="w-28 px-2" src="/logos/soundcloud.png" alt="" />
+    {/if}
+  </a>
+{:else if variant === 'text'}
+  <a
+    href={link.url}
+    target="_blank"
+    rel="noreferrer noopener nofollow"
+    class={`block text-xs font-medium text-gray-600 underline underline-offset-2 hover:text-gray-900`}
+  >
+    {#if link.type === 'spotify'}
+      Spotify
+    {:else if link.type === 'apple-music'}
+      Apple Music
+    {:else if link.type === 'bandcamp'}
+      Bandcamp
+    {:else if link.type === 'soundcloud'}
+      Soundcloud
     {/if}
   </a>
 {/if}

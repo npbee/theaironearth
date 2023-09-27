@@ -5,6 +5,115 @@
  */
 export const tracks: Record<string, Track> = {};
 export const albums: Record<string, Album> = {};
+export const otherWorks: Array<OtherWork> = [
+  {
+    id: 'aero-flynn-aero-flynn',
+    artist: "Aero Flynn",
+    title: "Aero Flynn",
+    year: 2015,
+    type: 'other-work',
+    artwork: 'artwork/aero-flynn_aero-flynn',
+    credit: 'Performance',
+    links: [
+      spotify("https://open.spotify.com/album/4BatNRXsQzhIk4zhnPWLLm?si=UNz8Sw1NTMeW161D6r8f4Q&nd=1"),
+      ap("https://music.apple.com/us/album/aero-flynn/1444224446"),
+      bc("https://aeroflynn.bandcamp.com/album/aero-flynn")
+    ]
+  },
+  {
+    id: 'luray_the-wilder',
+    artist: "Luray",
+    title: "The Wilder",
+    year: 2013,
+    type: 'other-work',
+    artwork: 'artwork/luray_the-wilder',
+    credit: 'Performance',
+    links: [
+      spotify("https://open.spotify.com/album/6lWQYeXaOURuSrZK996jhU"),
+      ap("https://music.apple.com/us/album/the-wilder/1249490257"),
+      bc("https://luray.bandcamp.com/album/the-wilder-2")
+    ]
+  },
+  {
+    id: 's-carey_break-me-open',
+    artist: "S. Carey",
+    title: "Break Me Open",
+    year: 2022,
+    type: 'other-work',
+    artwork: 'artwork/qkcarmd5jjk5hodiboje',
+    credit: "Guitars/Vocals/Synths",
+    links: [
+      ap("https://music.apple.com/us/album/break-me-open/1601838096?ls=1&app=itunes"),
+      spotify("http://open.spotify.com/album/3GnC2xEY4b6wowL2eBIwGc"),
+      bc("https://scarey.bandcamp.com/album/break-me-open")
+    ]
+  },
+  {
+    id: 's-carey_range-of-light',
+    artwork: 'artwork/zjih5phuh1414xpdyhzr',
+    title: 'Range of Light',
+    artist: 'S. Carey',
+    year: 2014,
+    credit: "Guitars",
+    type: 'other-work',
+    links: [
+      ap("https://music.apple.com/us/album/range-of-light/794531890"),
+      bc("https://scarey.bandcamp.com/album/range-of-light"),
+      spotify("https://open.spotify.com/album/1vZXJuVIRT18sZjea6ME2H")
+    ]
+  },
+  {
+    id: 's-carey_hoyas',
+    artwork: 'artwork/eqkxvzqxlruwbkr8pgzi',
+    title: 'Hoyas EP',
+    artist: 'S. Carey',
+    year: 2012,
+    credit: "Guitars",
+    type: 'other-work',
+    links: [
+      ap("https://music.apple.com/us/album/hoyas-ep/519773629"),
+      spotify("https://play.spotify.com/album/3tsQFplHSlmZc3RppbABLI")
+    ]
+  },
+  {
+    id: 's-carey_all-we-grow',
+    artwork: 'artwork/eqkxvzqxlruwbkr8pgzi',
+    title: 'All We Grow',
+    artist: 'S. Carey',
+    year: 2012,
+    credit: "Guitars",
+    type: 'other-work',
+    links: [
+      bc("https://scarey.bandcamp.com/album/all-we-grow"),
+      spotify("https://play.spotify.com/album/4OpI1vS7xwy4LIJioWDvkn"),
+      ap("https://music.apple.com/us/album/all-we-grow-bonus-track-version/444298490")
+    ]
+  },
+  {
+    id: 'sprit-of-talk-talk',
+    artwork: 'artwork/silktqysmwiyafngbv32',
+    title: 'Spirt of Talk Talk',
+    artist: 'Various Artists',
+    year: 2012,
+    credit: "Guitars (w/ S. Carey)",
+    type: 'other-work',
+    links: [
+      spotify("https://open.spotify.com/track/5KLpxOVMjxsNDuSpRfOd50?si=4b047aa6195b42d4"),
+    ]
+  },
+  {
+    id: 'low-s-carey',
+    artwork: 'artwork/low_cqfyrh',
+    title: "I Won't Let You Fall",
+    artist: "Low \\\\\\ S. Carey",
+    year: 2016,
+    credit: "Guitars",
+    type: 'other-work',
+    links: [
+      //
+    ]
+  }
+];
 
 export interface Theme {
   h: number;
@@ -68,6 +177,17 @@ export interface Album {
     credit?: PersonOrPlace;
     ratio?: string;
   }>;
+}
+
+interface OtherWork {
+  type: 'other-work',
+  id: string;
+  artist: string;
+  artwork: string;
+  title: string;
+  year: number;
+  credit: string;
+  links: ListenLink[];
 }
 
 /**

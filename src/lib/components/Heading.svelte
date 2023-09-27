@@ -7,7 +7,7 @@ export let level = 2;
 {:else if level === 2}
   <h2 class="text-3xl" {...$$restProps}><slot /></h2>
 {:else if level === 3}
-  <h3 {...$$restProps}><slot /></h3>
+  <h3 class="text-2xl" {...$$restProps}><slot /></h3>
 {:else if level === 4}
   <h4><slot /></h4>
 {:else if level === 5}

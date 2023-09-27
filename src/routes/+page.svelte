@@ -1,7 +1,6 @@
 <script lang="ts">
 import '../app.css';
 import Nav from '$lib/components/Nav.svelte';
-import Bg from '$lib/components/Bg.svelte';
 import IconSprite from '$lib/components/Icons.svelte';
 import Logo from '$lib/components//Logo.svelte';
 import type { PageData } from './$types';
@@ -19,7 +18,6 @@ let shouldAnimate = data.shouldAnimate;
   description="Wandering, ambient pop music that's patient and immersive."
 />
 
-<Bg />
 <IconSprite />
 <main class="flex h-full flex-1 flex-col justify-center gap-8 p-6" class:animate={shouldAnimate}>
   <div class="flex flex-col justify-center gap-4 md:flex-1">

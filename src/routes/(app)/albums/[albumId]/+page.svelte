@@ -18,7 +18,7 @@ let { album } = data;
 
 <Meta
   title={`${album.title} | The Air on Earth`}
-  description={`Album listing, credits, and purchase/streaming links for ${album.title} by The Air on Earth`}
+  description={`Album listing, credits, and streaming links for ${album.title} by The Air on Earth`}
 />
 
 <div class="space-y-24">

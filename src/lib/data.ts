@@ -156,6 +156,13 @@ export type ListenLink =
   | { type: 'bandcamp'; url: string }
   | { type: 'apple-music'; url: string };
 
+export interface AlbumExtra {
+  id: string;
+  type: 'link',
+  title: string;
+  urls: Array<{ url: string; title: string }>
+}
+
 export interface Album {
   type: 'album';
   id: string;
@@ -163,6 +170,7 @@ export interface Album {
   tracks: Track[];
   coverStyle: 'dark' | 'light';
   artwork: string;
+  extras: Array<AlbumExtra>;
   extraArtwork?: {
     src: string;
     name: string;
@@ -258,11 +266,32 @@ const GoodSport = registerAlbum({
   title: 'Good Sport',
   artwork: 'artwork/good-sport-front',
   coverStyle: 'dark',
-  // extraArtwork: {
-  //   src: cloudinaryImgUrl('artwork/good-sport-booklet.pdf'),
-  //   name: 'Artwork Booklet',
-  //   size: '29.7MB',
-  // },
+  extras: [
+    {
+      id: 'booklet-spread',
+      type: 'link',
+      title: 'Booklet Spread',
+      urls: [
+        { url: 'https://theaironearth-booklets.s3.amazonaws.com/01_Spread_TAOE_GoodSport_Booklet_Low.pdf', title: 'Small' },
+        { url: 'https://theaironearth-booklets.s3.amazonaws.com/01_Spread_TAOE_GoodSport_Booklet.pdf', title: 'Large' }
+      ]
+    },
+    {
+      id: 'booklet',
+      type: 'link',
+      title: 'Booklet',
+      urls: [
+        {
+          url: 'https://theaironearth-booklets.s3.amazonaws.com/02_Single_TAOE_GoodSport_Booklet_Low.pdf',
+          title: 'Small'
+        },
+        {
+          url: 'https://theaironearth-booklets.s3.amazonaws.com/02_Single_TAOE_GoodSport_Booklet.pdf',
+          title: 'Large'
+        }
+      ]
+    },
+  ],
   description: [
     '<em>Good Sport</em> is the second full-length album under The Air on Earth. The project was kicked off with a single studio session as a wedding gift from a friend and it continued to grow from there, drawing inspiration from the studio space and collaboration with engineer Beau Sorenson. It was recorded over a year-long period both at home and at Tiny Telephone studios in San Francisco.',
     'Primarily constrained to headphones, the album explores synthesizers, electronic percussion, and finely detailed ambient noise in combination with pianos, layered vocals, and found sound. ',

@@ -77,19 +77,42 @@ let { album } = data;
     </div>
     <div class="flex-1 space-y-10">
       <div>
-        <div class="flex w-full flex-col gap-4">
+        <div class="flex w-full flex-col gap-2">
           <SubtleHeading level="2">Credits</SubtleHeading>
           <Credits credits={album.credits} />
         </div>
       </div>
-      <div class="space-y-5">
+      <div class="space-y-2">
         <SubtleHeading level="2">Links</SubtleHeading>
-        <ul class="grid items-center gap-3 sm:grid-cols-2">
-          {#each album.links as link}
-            <li><ListenLink link={link} variant="lockup-btn" /></li>
-          {/each}
-        </ul>
+        <TextListenLinkList links={album.links} />
       </div>
+      {#if album.extras.length > 0}
+        <div class="space-y-3">
+          <SubtleHeading level="2">Extras</SubtleHeading>
+          <div class="space-y-1 text-xs font-medium">
+            {#each album.extras as extra}
+              <div class="flex items-baseline gap-2">
+                {extra.title}
+                <div class="flex items-baseline gap-1">
+                  {#each extra.urls as url, i}
+                    <a
+                      target="_blank"
+                      rel="noreferrer noopener nofollow"
+                      class="block underline"
+                      href={url.url}>{url.title}</a
+                    >
+                    <span
+                      aria-hidden="true"
+                      class="px-1 text-xs text-gray-400"
+                      hidden={i === extra.urls.length - 1}>/</span
+                    >
+                  {/each}
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+      {/if}
     </div>
   </div>
 

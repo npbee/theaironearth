@@ -11,10 +11,10 @@ let artwork = album.artwork;
 let context = album.coverStyle;
 </script>
 
-<div class="w-100 relative aspect-square overflow-hidden rounded-sm hover:opacity-75">
+<div class="w-100 relative aspect-square overflow-hidden rounded-sm">
   <Image ratio="100%" src={artwork} alt={`Artwork for ${track.title}`} />
   <div
-    class="absolute bottom-0 left-0 right-0 top-0 flex h-full w-full items-center justify-center"
+    class="absolute bottom-0 left-0 right-0 top-0 flex h-full w-full items-center justify-center opacity-50 hover:opacity-100"
   >
     <MicroPlayer trackId={track.id} context={context} />
   </div>

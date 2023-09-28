@@ -4,7 +4,6 @@ import Heading from './Heading.svelte';
 import AlbumRef from './AlbumRef.svelte';
 import { generateTheme } from '../utils';
 import MicroPlayer from './MicroPlayer.svelte';
-import ListenLink from './ListenLink.svelte';
 import Image from './Image.svelte';
 import Lyrics from './Lyrics.svelte';
 import Credits from './Credits.svelte';
@@ -21,9 +20,9 @@ let alpha = trackTheme['mainAlpha'];
 let artwork = track.artwork ?? album.artwork;
 </script>
 
-<div class="flex flex-col gap-16 md:flex-row md:items-start">
+<div class="flex flex-col gap-8 md:flex-row md:items-start">
   <div
-    class="top-8 w-full overflow-hidden rounded-sm md:sticky md:w-1/2"
+    class="top-8 w-full overflow-hidden rounded-sm md:sticky md:max-w-md"
     style={`box-shadow: 0px 0px 30px 1px ${alpha};`}
   >
     <Image ratio="100%" src={artwork} alt={`Artwork for ${track.title}`} />

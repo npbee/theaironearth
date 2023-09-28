@@ -29,22 +29,6 @@ let { album } = data;
       <div>
         <Image src={album.artwork} alt={`Album artwork for ${album.title}`} ratio="100%" />
       </div>
-      {#if album.extraArtwork}
-        <a
-          href={album.extraArtwork.src}
-          target="_blank"
-          rel="noreferrer noopener nofollow"
-          class="text-grey-600 hover:text-grey-900 trans flex items-center justify-center
-          py-4 text-sm underline"
-        >
-          <span class="mr-1">
-            {album.extraArtwork.name} ({album.extraArtwork.size})
-          </span>
-          <svg class="fill-current" style="width: 1em; height: 1em;">
-            <use xlink:href="#link-icon" />
-          </svg>
-        </a>
-      {/if}
     </div>
 
     <!-- Title and track list -->

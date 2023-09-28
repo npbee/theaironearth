@@ -4,7 +4,7 @@ import Heading from './Heading.svelte';
 import AlbumRef from './AlbumRef.svelte';
 import { generateTheme } from '../utils';
 import MicroPlayer from './MicroPlayer.svelte';
-import Image from './Image.svelte';
+import ZoomableImage from './ZoomableImage.svelte';
 import Lyrics from './Lyrics.svelte';
 import Credits from './Credits.svelte';
 import SubtleHeading from './SubtleHeading.svelte';
@@ -25,7 +25,7 @@ let artwork = track.artwork ?? album.artwork;
     class="top-8 w-full overflow-hidden rounded-sm md:sticky md:max-w-md"
     style={`box-shadow: 0px 0px 30px 1px ${alpha};`}
   >
-    <Image ratio="100%" src={artwork} alt={`Artwork for ${track.title}`} />
+    <ZoomableImage ratio="100%" src={artwork} alt={`Artwork for ${track.title}`} />
   </div>
 
   <div class="flex flex-1 flex-col gap-8">

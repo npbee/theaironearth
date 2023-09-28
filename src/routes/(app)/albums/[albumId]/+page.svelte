@@ -3,7 +3,7 @@ import Image from '$lib/components/Image.svelte';
 import Date from '$lib/components/Date.svelte';
 import Heading from '$lib/components/Heading.svelte';
 import Tracklist from '$lib/components/Tracklist.svelte';
-import ListenLink from '$lib/components/ListenLink.svelte';
+import ZoomableImage from '$lib/components/ZoomableImage.svelte';
 import Credits from '$lib/components/Credits.svelte';
 import CreditSource from '$lib/components/CreditSource.svelte';
 import Track from '$lib/components/Track.svelte';
@@ -27,7 +27,7 @@ let { album } = data;
     <!-- Artwork -->
     <div class="flex-1 md:max-w-md">
       <div>
-        <Image src={album.artwork} alt={`Album artwork for ${album.title}`} ratio="100%" />
+        <ZoomableImage src={album.artwork} alt={`Album artwork for ${album.title}`} ratio="100%" />
       </div>
     </div>
 
@@ -70,7 +70,7 @@ let { album } = data;
         <SubtleHeading level="2">Links</SubtleHeading>
         <TextListenLinkList links={album.links} />
       </div>
-      {#if album.extras.length > 0}
+      {#if album.extras?.length > 0}
         <div class="space-y-3">
           <SubtleHeading level="2">Extras</SubtleHeading>
           <div class="space-y-1 text-xs font-medium">

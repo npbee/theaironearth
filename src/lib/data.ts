@@ -1,5 +1,3 @@
-import { cloudinaryAudioUrl, cloudinaryImgUrl } from "./utils";
-
 /**
  * The "database"
  *
@@ -10,45 +8,47 @@ export const albums: Record<string, Album> = {};
 export const otherWorks: Array<OtherWork> = [
   {
     id: 'aero-flynn-aero-flynn',
-    artist: "Aero Flynn",
-    title: "Aero Flynn",
+    artist: 'Aero Flynn',
+    title: 'Aero Flynn',
     year: 2015,
     type: 'other-work',
     artwork: 'artwork/aero-flynn_aero-flynn',
     credit: 'Performance',
     links: [
-      spotify("https://open.spotify.com/album/4BatNRXsQzhIk4zhnPWLLm?si=UNz8Sw1NTMeW161D6r8f4Q&nd=1"),
-      ap("https://music.apple.com/us/album/aero-flynn/1444224446"),
-      bc("https://aeroflynn.bandcamp.com/album/aero-flynn")
-    ]
+      spotify(
+        'https://open.spotify.com/album/4BatNRXsQzhIk4zhnPWLLm?si=UNz8Sw1NTMeW161D6r8f4Q&nd=1',
+      ),
+      ap('https://music.apple.com/us/album/aero-flynn/1444224446'),
+      bc('https://aeroflynn.bandcamp.com/album/aero-flynn'),
+    ],
   },
   {
     id: 'luray_the-wilder',
-    artist: "Luray",
-    title: "The Wilder",
+    artist: 'Luray',
+    title: 'The Wilder',
     year: 2013,
     type: 'other-work',
     artwork: 'artwork/luray_the-wilder',
     credit: 'Performance',
     links: [
-      spotify("https://open.spotify.com/album/6lWQYeXaOURuSrZK996jhU"),
-      ap("https://music.apple.com/us/album/the-wilder/1249490257"),
-      bc("https://luray.bandcamp.com/album/the-wilder-2")
-    ]
+      spotify('https://open.spotify.com/album/6lWQYeXaOURuSrZK996jhU'),
+      ap('https://music.apple.com/us/album/the-wilder/1249490257'),
+      bc('https://luray.bandcamp.com/album/the-wilder-2'),
+    ],
   },
   {
     id: 's-carey_break-me-open',
-    artist: "S. Carey",
-    title: "Break Me Open",
+    artist: 'S. Carey',
+    title: 'Break Me Open',
     year: 2022,
     type: 'other-work',
     artwork: 'artwork/qkcarmd5jjk5hodiboje',
-    credit: "Guitars/Vocals/Synths",
+    credit: 'Guitars/Vocals/Synths',
     links: [
-      ap("https://music.apple.com/us/album/break-me-open/1601838096?ls=1&app=itunes"),
-      spotify("http://open.spotify.com/album/3GnC2xEY4b6wowL2eBIwGc"),
-      bc("https://scarey.bandcamp.com/album/break-me-open")
-    ]
+      ap('https://music.apple.com/us/album/break-me-open/1601838096?ls=1&app=itunes'),
+      spotify('http://open.spotify.com/album/3GnC2xEY4b6wowL2eBIwGc'),
+      bc('https://scarey.bandcamp.com/album/break-me-open'),
+    ],
   },
   {
     id: 's-carey_range-of-light',
@@ -56,13 +56,13 @@ export const otherWorks: Array<OtherWork> = [
     title: 'Range of Light',
     artist: 'S. Carey',
     year: 2014,
-    credit: "Guitars",
+    credit: 'Guitars',
     type: 'other-work',
     links: [
-      ap("https://music.apple.com/us/album/range-of-light/794531890"),
-      bc("https://scarey.bandcamp.com/album/range-of-light"),
-      spotify("https://open.spotify.com/album/1vZXJuVIRT18sZjea6ME2H")
-    ]
+      ap('https://music.apple.com/us/album/range-of-light/794531890'),
+      bc('https://scarey.bandcamp.com/album/range-of-light'),
+      spotify('https://open.spotify.com/album/1vZXJuVIRT18sZjea6ME2H'),
+    ],
   },
   {
     id: 's-carey_hoyas',
@@ -70,12 +70,12 @@ export const otherWorks: Array<OtherWork> = [
     title: 'Hoyas EP',
     artist: 'S. Carey',
     year: 2012,
-    credit: "Guitars",
+    credit: 'Guitars',
     type: 'other-work',
     links: [
-      ap("https://music.apple.com/us/album/hoyas-ep/519773629"),
-      spotify("https://play.spotify.com/album/3tsQFplHSlmZc3RppbABLI")
-    ]
+      ap('https://music.apple.com/us/album/hoyas-ep/519773629'),
+      spotify('https://play.spotify.com/album/3tsQFplHSlmZc3RppbABLI'),
+    ],
   },
   {
     id: 's-carey_all-we-grow',
@@ -83,13 +83,13 @@ export const otherWorks: Array<OtherWork> = [
     title: 'All We Grow',
     artist: 'S. Carey',
     year: 2012,
-    credit: "Guitars",
+    credit: 'Guitars',
     type: 'other-work',
     links: [
-      bc("https://scarey.bandcamp.com/album/all-we-grow"),
-      spotify("https://play.spotify.com/album/4OpI1vS7xwy4LIJioWDvkn"),
-      ap("https://music.apple.com/us/album/all-we-grow-bonus-track-version/444298490")
-    ]
+      bc('https://scarey.bandcamp.com/album/all-we-grow'),
+      spotify('https://play.spotify.com/album/4OpI1vS7xwy4LIJioWDvkn'),
+      ap('https://music.apple.com/us/album/all-we-grow-bonus-track-version/444298490'),
+    ],
   },
   {
     id: 'sprit-of-talk-talk',
@@ -97,24 +97,22 @@ export const otherWorks: Array<OtherWork> = [
     title: 'Spirt of Talk Talk',
     artist: 'Various Artists',
     year: 2012,
-    credit: "Guitars (w/ S. Carey)",
+    credit: 'Guitars (w/ S. Carey)',
     type: 'other-work',
-    links: [
-      spotify("https://open.spotify.com/track/5KLpxOVMjxsNDuSpRfOd50?si=4b047aa6195b42d4"),
-    ]
+    links: [spotify('https://open.spotify.com/track/5KLpxOVMjxsNDuSpRfOd50?si=4b047aa6195b42d4')],
   },
   {
     id: 'low-s-carey',
     artwork: 'artwork/low_cqfyrh',
     title: "I Won't Let You Fall",
-    artist: "Low \\\\\\ S. Carey",
+    artist: 'Low \\\\\\ S. Carey',
     year: 2016,
-    credit: "Guitars",
+    credit: 'Guitars',
     type: 'other-work',
     links: [
       //
-    ]
-  }
+    ],
+  },
 ];
 
 export interface Theme {
@@ -158,9 +156,9 @@ export type ListenLink =
 
 export interface AlbumExtra {
   id: string;
-  type: 'link',
+  type: 'link';
   title: string;
-  urls: Array<{ url: string; title: string }>
+  urls: Array<{ url: string; title: string }>;
 }
 
 export interface Album {
@@ -190,7 +188,7 @@ export interface Album {
 }
 
 interface OtherWork {
-  type: 'other-work',
+  type: 'other-work';
   id: string;
   artist: string;
   artwork: string;
@@ -272,9 +270,15 @@ const GoodSport = registerAlbum({
       type: 'link',
       title: 'Booklet Spread',
       urls: [
-        { url: 'https://theaironearth-booklets.s3.amazonaws.com/01_Spread_TAOE_GoodSport_Booklet_Low.pdf', title: 'Small' },
-        { url: 'https://theaironearth-booklets.s3.amazonaws.com/01_Spread_TAOE_GoodSport_Booklet.pdf', title: 'Large' }
-      ]
+        {
+          url: 'https://theaironearth-booklets.s3.amazonaws.com/01_Spread_TAOE_GoodSport_Booklet_Low.pdf',
+          title: 'Small',
+        },
+        {
+          url: 'https://theaironearth-booklets.s3.amazonaws.com/01_Spread_TAOE_GoodSport_Booklet.pdf',
+          title: 'Large',
+        },
+      ],
     },
     {
       id: 'booklet',
@@ -283,13 +287,13 @@ const GoodSport = registerAlbum({
       urls: [
         {
           url: 'https://theaironearth-booklets.s3.amazonaws.com/02_Single_TAOE_GoodSport_Booklet_Low.pdf',
-          title: 'Small'
+          title: 'Small',
         },
         {
           url: 'https://theaironearth-booklets.s3.amazonaws.com/02_Single_TAOE_GoodSport_Booklet.pdf',
-          title: 'Large'
-        }
-      ]
+          title: 'Large',
+        },
+      ],
     },
   ],
   description: [
@@ -922,7 +926,12 @@ registerTrack({
       l: 50,
     },
   },
-  links: [bc('good-sport'), sc('good-sport'), spotify('track/22mwiRps7oowfHX4XQPWG6'), ap("https://music.apple.com/us/album/good-sport/1491613444?i=1491613445")],
+  links: [
+    bc('good-sport'),
+    sc('good-sport'),
+    spotify('track/22mwiRps7oowfHX4XQPWG6'),
+    ap('https://music.apple.com/us/album/good-sport/1491613444?i=1491613445'),
+  ],
 });
 
 registerTrack({
@@ -984,7 +993,12 @@ registerTrack({
       l: 28,
     },
   },
-  links: [bc('sprint'), sc('sprint'), spotify('track/1anztlSmPxEM0XZEv3KCyx'), ap("https://music.apple.com/us/album/sprint/1491613444?i=1491613566")],
+  links: [
+    bc('sprint'),
+    sc('sprint'),
+    spotify('track/1anztlSmPxEM0XZEv3KCyx'),
+    ap('https://music.apple.com/us/album/sprint/1491613444?i=1491613566'),
+  ],
 });
 
 registerTrack({
@@ -1040,7 +1054,12 @@ registerTrack({
       l: 33,
     },
   },
-  links: [bc('rest'), sc('rest'), spotify('track/5fqgN15DVKhH7TjUkvjVQD'), ap("https://music.apple.com/us/album/rest/1491613444?i=1491613567")],
+  links: [
+    bc('rest'),
+    sc('rest'),
+    spotify('track/5fqgN15DVKhH7TjUkvjVQD'),
+    ap('https://music.apple.com/us/album/rest/1491613444?i=1491613567'),
+  ],
 });
 
 registerTrack({
@@ -1098,7 +1117,12 @@ registerTrack({
       l: 37,
     },
   },
-  links: [bc('recur'), sc('recur'), spotify('track/3CLNv2LLvLpokLOAgXE13Y'), ap("https://music.apple.com/us/album/recur/1491613444?i=1491613568")],
+  links: [
+    bc('recur'),
+    sc('recur'),
+    spotify('track/3CLNv2LLvLpokLOAgXE13Y'),
+    ap('https://music.apple.com/us/album/recur/1491613444?i=1491613568'),
+  ],
 });
 
 registerTrack({
@@ -1107,7 +1131,12 @@ registerTrack({
   length: '7:06',
   albumId: 'good-sport',
   artwork: 'artwork/run-long',
-  links: [bc('run-long'), sc('run-long'), spotify('track/4EB16Im3JIBo2SnHreDlbU'), ap("https://music.apple.com/us/album/run-long/1491613444?i=1491613569")],
+  links: [
+    bc('run-long'),
+    sc('run-long'),
+    spotify('track/4EB16Im3JIBo2SnHreDlbU'),
+    ap('https://music.apple.com/us/album/run-long/1491613444?i=1491613569'),
+  ],
   lyrics: [
     [
       'I will know what you have done',
@@ -1160,7 +1189,12 @@ registerTrack({
   albumId: 'good-sport',
   artwork: 'artwork/bliss',
   length: '5:04',
-  links: [bc('bliss'), sc('bliss'), spotify('track/2yARNpMvIsECGv4RYK7sMM'), ap("https://music.apple.com/us/album/bliss/1491613444?i=1491613570")],
+  links: [
+    bc('bliss'),
+    sc('bliss'),
+    spotify('track/2yARNpMvIsECGv4RYK7sMM'),
+    ap('https://music.apple.com/us/album/bliss/1491613444?i=1491613570'),
+  ],
   lyrics: [
     [
       'And the hate floats',
@@ -1225,7 +1259,12 @@ registerTrack({
   length: '4:20',
   albumId: 'good-sport',
   artwork: 'artwork/drone',
-  links: [bc('drone'), sc('drone'), spotify('track/7rIZsaL1CAecX31Mbjg6lj'), ap("https://music.apple.com/us/album/drone/1491613444?i=1491613571")],
+  links: [
+    bc('drone'),
+    sc('drone'),
+    spotify('track/7rIZsaL1CAecX31Mbjg6lj'),
+    ap('https://music.apple.com/us/album/drone/1491613444?i=1491613571'),
+  ],
   lyrics: [
     ['My only sweep', 'My only vice', 'Run and wake him up', 'For all the tides'],
     [
@@ -1284,7 +1323,12 @@ registerTrack({
   length: '5:54',
   albumId: 'good-sport',
   artwork: 'artwork/hollow',
-  links: [bc('hollow'), sc('hollow'), spotify('track/3jFsyAwjlVjwF2G7vCc4Fy'), ap("https://music.apple.com/us/album/hollow/1491613444?i=1491613572")],
+  links: [
+    bc('hollow'),
+    sc('hollow'),
+    spotify('track/3jFsyAwjlVjwF2G7vCc4Fy'),
+    ap('https://music.apple.com/us/album/hollow/1491613444?i=1491613572'),
+  ],
   lyrics: [
     [
       'In the reeds that we love',

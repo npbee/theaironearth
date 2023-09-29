@@ -45,15 +45,15 @@
     }
   }
 
-  button:focus, 
+  button:focus,
   a:focus {
     outline: none;
   }
 
-  button:focus-visible, 
+  button:focus-visible,
   a:focus-visible {
     outline: none;
-    @apply focus-visible:ring focus-visible:ring-accent-400 ring-offset-2;
+    @apply ring-offset-2 focus-visible:ring focus-visible:ring-accent-400;
   }
 
   a:hover {

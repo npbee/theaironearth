@@ -140,9 +140,4 @@ img {
   opacity: 1;
   filter: none;
 }
-
-:global(.no-js) .main {
-  filter: none;
-  opacity: 1;
-}
 </style>

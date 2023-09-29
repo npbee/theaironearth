@@ -6,8 +6,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && prettier --check . && eslint .",
-    "format": "prettier --write '**/*.{svelte,ts}'"
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && prettier --check 'src/*/*.{svelte,ts,css}' && eslint .",
+    "format": "prettier --write 'src/**/*.{svelte,ts,css}'"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.0",

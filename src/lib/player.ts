@@ -1,14 +1,14 @@
-import { get, writable } from "svelte/store";
-import { cloudinaryAudioUrl, generateTheme } from "./utils";
-import { playlistOrder, tracks } from "$lib/data";
+import { get, writable } from 'svelte/store';
+import { cloudinaryAudioUrl, generateTheme } from './utils';
+import { playlistOrder, tracks } from '$lib/data';
 
 interface LoadingState {
-  status: 'loading',
+  status: 'loading';
   trackId: string;
 }
 
 interface IdleState {
-  status: 'idle',
+  status: 'idle';
 }
 
 interface PlayingState {
@@ -22,16 +22,15 @@ interface PausedState {
 }
 
 interface ErrorState {
-  status: 'error',
+  status: 'error';
   trackId: string;
 }
 
 type State = IdleState | LoadingState | PlayingState | PausedState | ErrorState;
 
-
 const store = writable<State>({
-  status: 'idle'
-})
+  status: 'idle',
+});
 
 let audioElement: HTMLAudioElement;
 
@@ -46,8 +45,8 @@ export const player = {
   async start(trackId: string) {
     store.set({
       status: 'loading',
-      trackId
-    })
+      trackId,
+    });
 
     const audioUrl = cloudinaryAudioUrl(trackId);
     audioElement.src = audioUrl;
@@ -63,38 +62,36 @@ export const player = {
     store.set({
       status: 'paused',
       trackId: state.trackId,
-    })
+    });
   },
 
   async play() {
     const state = get(store);
     if (state.status !== 'paused') return;
     await play(state.trackId);
-  }
-}
+  },
+};
 
-
-let onEnd: () => void = () => { };
+let onEnd: () => void = () => {};
 
 async function play(trackId: string) {
   try {
     audioElement.removeEventListener('ended', onEnd);
     await audioElement.play();
 
-    injectTrackTheme(trackId)
+    injectTrackTheme(trackId);
 
     store.set({
       status: 'playing',
       trackId,
-    })
+    });
 
     onEnd = () => {
       const nextTrackId = nextTrack(trackId);
       player.start(nextTrackId);
-    }
+    };
 
-    audioElement.addEventListener('ended', onEnd)
-
+    audioElement.addEventListener('ended', onEnd);
   } catch (err) {
     // Safari wants another user-initiated click to actually start the audio
     if (err instanceof Error && err.name === 'NotAllowedError') {
@@ -104,7 +101,7 @@ async function play(trackId: string) {
     store.set({
       status: 'error',
       trackId,
-    })
+    });
   }
 }
 

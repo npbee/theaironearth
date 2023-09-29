@@ -15,7 +15,11 @@ import Meta from '$lib/components/Meta.svelte';
 <section class="flex flex-col gap-10 md:flex-row">
   <div class="flex-1">
     <figure>
-      <Image src="about" alt="Picture of Nick Ball from The Air on Earth" />
+      <Image
+        src="promo-3"
+        transform="ar_16:9,c_fill,g_auto,e_sharpen"
+        alt="Picture of Nick Ball from The Air on Earth"
+      />
     </figure>
   </div>
   <div class="flex flex-col gap-10">

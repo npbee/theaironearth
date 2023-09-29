@@ -8,6 +8,7 @@ interface Size {
 
 export let src: string;
 export let alt: string;
+export let transform: string | undefined = undefined;
 export let ratio = '62.5%';
 export let sizes: Size[] = [
   { breakpoint: 1200, w: 1200 },
@@ -60,7 +61,7 @@ function waypoint(node: Element) {
 }
 
 function pic(w: number, format: Format) {
-  return url(`${src}.${format}`, `w_${w}`);
+  return url(`${src}.${format}`, [`w_${w}`, transform].filter(Boolean).join(','));
 }
 
 let lqip = pic(20, 'jpg');

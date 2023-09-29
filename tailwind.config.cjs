@@ -9,7 +9,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        accent: colors.violet,
+        accent: colors.rose,
         light: colors.gray['500'],
         muted: colors.gray['600'],
         semidark: colors.gray['700'],

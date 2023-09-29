@@ -28,7 +28,7 @@ $: handler = () => {
 <button
   class:text-gray-100={context === 'dark'}
   class:text-muted={context === 'light' || isBusy}
-  class="active:text-blue-600 flex hover:text-gray-500"
+  class="active:text-blue-600 flex h-full w-full items-center justify-center ring-offset-2 hover:text-gray-500"
   on:click={handler}
 >
   {#if isBusy}

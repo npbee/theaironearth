@@ -4,11 +4,3 @@
 
 [dev]
   command = "pnpm dev"
-
-[[redirects]]
-  from = "/track/*"
-  to = "/tracks/:splat"
-
-[[redirects]]
-  from = "/album/*"
-  to = "/albums/:splat"

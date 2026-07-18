@@ -21,16 +21,13 @@ import Meta from '$lib/components/Meta.svelte';
       Wandering, ambient pop. Vocal harmonies, delayed guitars, drone-y synths, and found sound.
       Long songs are not uncommon.
     </p>
-    <p class="">
-      <em>Good Sport</em> is the second album.
-    </p>
   </div>
   <div class="space-y-3">
     <SubtleHeading level="2">Links</SubtleHeading>
-    <ul class="grid flex-col gap-2 md:grid-cols-2">
+    <ul class="list-disc space-y-1 pl-5">
       {#each Object.values(site.links) as link}
-        <li class="py-2 md:py-1">
-          <ListenLink link={link} variant="lockup-btn" />
+        <li>
+          <ListenLink link={link} variant="text" size="text-base" />
         </li>
       {/each}
     </ul>

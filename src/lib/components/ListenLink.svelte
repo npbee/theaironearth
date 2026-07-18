@@ -5,6 +5,8 @@ export let link: ListenLink;
 
 export let variant: 'lockup' | 'lockup-btn' | 'glyph' | 'text' = 'lockup';
 
+export let size = 'text-xs';
+
 function linkTitle(link: ListenLink) {
   switch (link.type) {
     case 'soundcloud':
@@ -82,7 +84,7 @@ function linkTitle(link: ListenLink) {
     href={link.url}
     target="_blank"
     rel="noreferrer noopener nofollow"
-    class={`block text-xs font-medium text-gray-600 underline underline-offset-2 hover:text-gray-900`}
+    class={`block ${size} font-medium text-gray-600 underline underline-offset-2 hover:text-gray-900`}
   >
     {#if link.type === 'spotify'}
       Spotify

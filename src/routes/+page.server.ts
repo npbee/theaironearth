@@ -5,6 +5,7 @@ export const load: PageServerLoad = ({ cookies }) => {
 
   if (!animationCookie) {
     cookies.set('home-animated', 'true', {
+      path: '/',
       maxAge: 60 * 60, // expires in 1 hour
     });
   }

@@ -84,7 +84,7 @@ let lqip = pic(20, 'jpg');
       </picture>
     </noscript>
 
-    <div style={`width: 100%; padding-bottom: ${ratio}`} />
+    <div style={`width: 100%; padding-bottom: ${ratio}`}></div>
 
     <div style={`display: ${js ? 'block' : 'none'}`}>
       <img class="placeholder blur" src={lqip} alt={alt} />
